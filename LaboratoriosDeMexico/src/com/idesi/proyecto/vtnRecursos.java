@@ -26,6 +26,14 @@ public class vtnRecursos extends javax.swing.JFrame {
         txtPrecio.setText("");
     }
     
+    private void limpiar_cajas1() {
+        txtCodigo1.setText("");
+        txtNombre1.setText("");
+        txtExist1.setText("");
+        txtPrecio1.setText("");
+        txtTipo.setText("");
+    }
+    
     public void cargar_datos(int actual){
          txtCodigo1.setText(recursos[actual].getCodigo());
          txtTipo.setText(recursos[actual].getTipoProducto());
@@ -343,11 +351,14 @@ public class vtnRecursos extends javax.swing.JFrame {
             recursos[modificar].setNombreProducto(txtNombre1.getText());
             recursos[modificar].setExistencia(Double.parseDouble(txtExist1.getText()));
             recursos[modificar].setPrecio(Double.parseDouble(txtPrecio1.getText()));
+           
+            limpiar_cajas1();
             
             JOptionPane.showMessageDialog(this, "Elemento guardado con exito.");
             posBusqueda = 5;
+           
             
-            ckbModificar.setEnabled(false);
+            //ckbModificar.isSelected();
             
         }     
     }//GEN-LAST:event_btnModificarActionPerformed
@@ -416,8 +427,8 @@ public class vtnRecursos extends javax.swing.JFrame {
 
         vtnRecMos.setVisible(true);
         this.setVisible(false);
-        limpiar_cajas();
-        ckbModificar.setEnabled(false);
+        limpiar_cajas1();
+        //ckbModificar.setEnabled(false);
     }//GEN-LAST:event_mniInventarioActionPerformed
 
  
