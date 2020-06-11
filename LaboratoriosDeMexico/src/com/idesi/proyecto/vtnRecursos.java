@@ -10,6 +10,7 @@ public class vtnRecursos extends javax.swing.JFrame {
    int posArr = 0;
    int posBusqueda = 5;
    int actual = 0;
+   int modificar = 0;
    
    RecursosMostrar vtnRecMos = null;
   
@@ -335,16 +336,18 @@ public class vtnRecursos extends javax.swing.JFrame {
              
         //if ((!(txtPrecio1.getText()).equals(String.valueOf(recursos[posBusqueda].getPrecio())))) {
           
-        if (Double.parseDouble(txtPrecio1.getText()) != recursos[posBusqueda].getPrecio()) {
+        if (Double.parseDouble(txtPrecio1.getText()) != recursos[modificar].getPrecio()) {
             
-            recursos[posArr].setCodigo(txtCodigo1.getText());
-            recursos[posArr].setTipoProducto(txtTipo.getText());
-            recursos[posArr].setNombreProducto(txtNombre1.getText());
-            recursos[posArr].setExistencia(Double.parseDouble(txtExist1.getText()));
-            recursos[posArr].setPrecio(Double.parseDouble(txtPrecio1.getText()));
+            recursos[modificar].setCodigo(txtCodigo1.getText());
+            recursos[modificar].setTipoProducto(txtTipo.getText());
+            recursos[modificar].setNombreProducto(txtNombre1.getText());
+            recursos[modificar].setExistencia(Double.parseDouble(txtExist1.getText()));
+            recursos[modificar].setPrecio(Double.parseDouble(txtPrecio1.getText()));
             
             JOptionPane.showMessageDialog(this, "Elemento guardado con exito.");
             posBusqueda = 5;
+            
+            ckbModificar.setEnabled(false);
             
         }     
     }//GEN-LAST:event_btnModificarActionPerformed
@@ -368,6 +371,7 @@ public class vtnRecursos extends javax.swing.JFrame {
                 txtNombre1.setText(recursos[posBusqueda].getNombreProducto());
                 txtExist1.setText(String.valueOf(recursos[posBusqueda].getExistencia()));
                 txtPrecio1.setText(String.valueOf(recursos[posBusqueda].getPrecio()));
+                modificar = posBusqueda;
                 posBusqueda = 5;
             } else {
                 JOptionPane.showMessageDialog(this, "Nombre no encontrado");
@@ -413,7 +417,7 @@ public class vtnRecursos extends javax.swing.JFrame {
         vtnRecMos.setVisible(true);
         this.setVisible(false);
         limpiar_cajas();
-        
+        ckbModificar.setEnabled(false);
     }//GEN-LAST:event_mniInventarioActionPerformed
 
  
