@@ -94,6 +94,14 @@ public class ClientesMan extends javax.swing.JFrame {
 
         jLabel13.setText("Codigo:");
 
+        txtNombre1.setEnabled(false);
+
+        txtEdad1.setEnabled(false);
+
+        txtCodigo1.setEnabled(false);
+
+        txtDom1.setEnabled(false);
+
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -353,13 +361,22 @@ public class ClientesMan extends javax.swing.JFrame {
        
          if (ckbModificar.isSelected()) {
                 
+                limpiar_cajas1();
                 btnModificar.setEnabled(true);
                 btnEliminar.setEnabled(true);
+                txtNombre1.setEnabled(true);
+                txtEdad1.setEnabled(true);
+                txtDom1.setEnabled(true);
+                txtCodigo1.setEnabled(true);
                 
             } else {
                  
                 btnModificar.setEnabled(false);
                 btnEliminar.setEnabled(false);
+                txtNombre1.setEnabled(false);
+                txtEdad1.setEnabled(false);
+                txtDom1.setEnabled(false);
+                txtCodigo1.setEnabled(false);
             
          }
          

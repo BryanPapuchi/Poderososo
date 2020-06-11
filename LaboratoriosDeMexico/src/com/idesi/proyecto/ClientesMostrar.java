@@ -52,6 +52,7 @@ public class ClientesMostrar extends javax.swing.JFrame {
         mniRegresar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Clientes Registrados");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("Lista de Clientes");
