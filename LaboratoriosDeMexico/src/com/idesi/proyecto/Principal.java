@@ -112,7 +112,7 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(40, 40, 40)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(220, 220, 220)
+                        .addGap(226, 226, 226)
                         .addComponent(jLabel3)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -131,7 +131,7 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(btnSalir))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(jLabel4))
         );
 
@@ -139,8 +139,9 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-       JOptionPane.showMessageDialog(this, "Elaborado por los alumnos: Bryan Casillas Diaz y "
-               + "Christopher Emanuel Bogarin Torres ");
+       JOptionPane.showMessageDialog(this, "Elaborado por los alumnos: \n "
+               + "Bryan Casillas Diaz 18310053 \n "
+               + "Christopher Emanuel Bogarin Torres 18310044");
 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
