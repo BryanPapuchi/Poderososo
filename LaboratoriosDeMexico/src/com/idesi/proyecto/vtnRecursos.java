@@ -110,6 +110,12 @@ public class vtnRecursos extends javax.swing.JFrame {
 
         jLabel8.setText("Ingresa el nombre del producto:");
 
+        txtBuscado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBuscadoActionPerformed(evt);
+            }
+        });
+
         ckbModificar.setText("Modificar Precio");
         ckbModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -343,7 +349,8 @@ public class vtnRecursos extends javax.swing.JFrame {
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
              
         //if ((!(txtPrecio1.getText()).equals(String.valueOf(recursos[posBusqueda].getPrecio())))) {
-          
+         
+    
         if (Double.parseDouble(txtPrecio1.getText()) != recursos[modificar].getPrecio()) {
             
             recursos[modificar].setCodigo(txtCodigo1.getText());
@@ -365,10 +372,19 @@ public class vtnRecursos extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
        
-         if (!(txtBuscado.getText()).equals("")) {
+        if (!(txtBuscado.getText()).equals("")) {
             String productoBuscada = txtBuscado.getText();
             for (int i = 0; i < posArr; i++) {
-                if ((recursos[i].getNombreProducto()).equalsIgnoreCase(productoBuscada)) {
+                
+                if (ckbModificar.isSelected()) {
+                
+                    if ((recursos[i].getCodigo()).equalsIgnoreCase(productoBuscada)) {
+                        posBusqueda = i;
+                        break;
+                    
+                    }
+                
+                } else if ((recursos[i].getNombreProducto()).equalsIgnoreCase(productoBuscada) ) {
                     posBusqueda = i;
                     break;
                 }
@@ -411,7 +427,7 @@ public class vtnRecursos extends javax.swing.JFrame {
                 txtTipo.setEnabled(true);
                 txtNombre1.setEnabled(true);
                 txtExist1.setEnabled(true);
-             }
+            }
              
     }//GEN-LAST:event_ckbModificarActionPerformed
 
@@ -431,6 +447,10 @@ public class vtnRecursos extends javax.swing.JFrame {
 
         //ckbModificar.setEnabled(false);
     }//GEN-LAST:event_mniInventarioActionPerformed
+
+    private void txtBuscadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscadoActionPerformed
 
  
     
