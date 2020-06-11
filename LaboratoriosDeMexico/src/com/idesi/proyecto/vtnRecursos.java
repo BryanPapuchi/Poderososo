@@ -428,6 +428,7 @@ public class vtnRecursos extends javax.swing.JFrame {
         vtnRecMos.setVisible(true);
         this.setVisible(false);
         limpiar_cajas1();
+
         //ckbModificar.setEnabled(false);
     }//GEN-LAST:event_mniInventarioActionPerformed
 
