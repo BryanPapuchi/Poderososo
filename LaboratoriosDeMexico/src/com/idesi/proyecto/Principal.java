@@ -137,6 +137,7 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         System.out.println("hola");
+        System.out.println("puta");
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
