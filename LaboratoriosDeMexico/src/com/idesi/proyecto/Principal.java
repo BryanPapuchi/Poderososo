@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.idesi.proyecto;
 
-/**
- *
- * @author TITO
- */
+import javax.swing.JOptionPane;
+
+
 public class Principal extends javax.swing.JFrame {
 
     /**
@@ -67,6 +62,11 @@ public class Principal extends javax.swing.JFrame {
         jMenu1.setText("Opciones");
 
         mniSalirSistema.setText("Salir del sistema");
+        mniSalirSistema.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniSalirSistemaActionPerformed(evt);
+            }
+        });
         jMenu1.add(mniSalirSistema);
 
         jMenuBar1.add(jMenu1);
@@ -134,13 +134,18 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
+       JOptionPane.showMessageDialog(this, "Elaborado por los alumnos: Bryan Casillas Diaz y "
+               + "Christopher Emanuel Bogarin Torres ");
 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void mniSalirSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniSalirSistemaActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_mniSalirSistemaActionPerformed
 
     /**
      * @param args the command line arguments
