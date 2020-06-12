@@ -6,9 +6,12 @@ import javax.swing.JOptionPane;
 
 public class Principal extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Principal
-     */
+    vtnRecursos vtnRecursos = null;
+    ClientesMan vtnClientes = null;
+    
+    RecursosMateriales recursos = new RecursosMateriales();
+    Clientes clientes = new Clientes();
+    
     public Principal() {
         initComponents();
     }
@@ -24,9 +27,9 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnRecursos = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnClientes = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -44,7 +47,12 @@ public class Principal extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("LABORATORIO DE ANALISIS CLINICOS");
 
-        jButton1.setText("Recursos materiales");
+        btnRecursos.setText("Recursos materiales");
+        btnRecursos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRecursosActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Control de personal");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -53,7 +61,12 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Manejo de Clientes");
+        btnClientes.setText("Manejo de Clientes");
+        btnClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClientesActionPerformed(evt);
+            }
+        });
 
         btnSalir.setText("Salir del sistema");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -102,11 +115,11 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(61, 61, 61)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
+                            .addComponent(btnRecursos)
                             .addComponent(jButton2))
                         .addGap(110, 110, 110)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton3)
+                            .addComponent(btnClientes)
                             .addComponent(btnSalir)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
@@ -125,8 +138,8 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton3))
+                    .addComponent(btnRecursos)
+                    .addComponent(btnClientes))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
@@ -156,6 +169,28 @@ public class Principal extends javax.swing.JFrame {
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnRecursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecursosActionPerformed
+        
+       if (vtnRecursos == null) {
+            vtnRecursos = new vtnRecursos(this, recursos);
+        }
+
+        vtnRecursos.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_btnRecursosActionPerformed
+
+    private void btnClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientesActionPerformed
+      
+        if (vtnClientes == null) {
+            vtnClientes = new ClientesMan(this, clientes);
+        }
+
+        vtnClientes.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_btnClientesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,10 +228,10 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnClientes;
+    private javax.swing.JButton btnRecursos;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

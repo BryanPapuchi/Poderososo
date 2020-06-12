@@ -7,15 +7,24 @@ import javax.swing.JOptionPane;
 public class vtnRecursos extends javax.swing.JFrame {
 
    RecursosMateriales recursos[] = new RecursosMateriales[5];
+   RecursosMateriales recursos1 = new RecursosMateriales();
+   
    int posArr = 0;
    int posBusqueda = 5;
    int actual = 0;
    int modificar = 0;
    
    RecursosMostrar vtnRecMos = null;
+   Principal vtnPrincipal;
   
     
     public vtnRecursos() {
+        initComponents();
+    }
+    
+    public vtnRecursos( Principal vtnPrincipal , RecursosMateriales recursos1) {
+        this.recursos1 = recursos1;
+        this.vtnPrincipal = vtnPrincipal;
         initComponents();
     }
     
@@ -77,6 +86,7 @@ public class vtnRecursos extends javax.swing.JFrame {
         btnModificar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        mniRegresarMenu = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         mniInventario = new javax.swing.JMenuItem();
 
@@ -149,6 +159,15 @@ public class vtnRecursos extends javax.swing.JFrame {
         });
 
         jMenu1.setText("File");
+
+        mniRegresarMenu.setText("Regresar al menu");
+        mniRegresarMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniRegresarMenuActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mniRegresarMenu);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Edit");
@@ -434,7 +453,9 @@ public class vtnRecursos extends javax.swing.JFrame {
     }//GEN-LAST:event_ckbModificarActionPerformed
 
     private void mniInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniInventarioActionPerformed
-       
+
+    if (posArr > 0) {
+        
         if (vtnRecMos == null) {
             vtnRecMos = new RecursosMostrar(this, recursos);
         }
@@ -447,12 +468,22 @@ public class vtnRecursos extends javax.swing.JFrame {
         this.setVisible(false);
         limpiar_cajas1();
 
-        //ckbModificar.setEnabled(false);
+    } else {
+        JOptionPane.showMessageDialog(this, "No hay recursos registrados.");
+    }
     }//GEN-LAST:event_mniInventarioActionPerformed
 
     private void txtBuscadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscadoActionPerformed
+
+    private void mniRegresarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniRegresarMenuActionPerformed
+       
+        this.setVisible(false);
+        vtnPrincipal.setVisible(true);
+        limpiar_cajas();
+        
+    }//GEN-LAST:event_mniRegresarMenuActionPerformed
 
  
     
@@ -512,6 +543,7 @@ public class vtnRecursos extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem mniInventario;
+    private javax.swing.JMenuItem mniRegresarMenu;
     private javax.swing.JTextField txtBuscado;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtCodigo1;

@@ -7,6 +7,7 @@ public class ClientesMan extends javax.swing.JFrame {
 
     Clientes clientes[] = new Clientes[5];
     Citas citas[] = new Citas[5];
+    Clientes clientes1 = new Clientes();
     
     int posArr = 0;
     int posBusqueda = 0;
@@ -15,9 +16,16 @@ public class ClientesMan extends javax.swing.JFrame {
 
     
     RegistrarCitas vtnRegCit = null;
-    CitasMos vtnCitasMos = null;
+    ClientesMostrar vtnCliMos = null;
+    Principal vtnPrincipal;
     
     public ClientesMan() {
+        initComponents();
+    }
+    
+    public ClientesMan( Principal vtnPrincipal , Clientes clientes1) {
+        this.clientes1 = clientes1;
+        this.vtnPrincipal = vtnPrincipal;
         initComponents();
     }
 
@@ -66,6 +74,7 @@ public class ClientesMan extends javax.swing.JFrame {
         btnGuardar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        mniregresarMenu = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         mniListCli = new javax.swing.JMenuItem();
         mniEstab = new javax.swing.JMenuItem();
@@ -143,6 +152,15 @@ public class ClientesMan extends javax.swing.JFrame {
         });
 
         jMenu1.setText("File");
+
+        mniregresarMenu.setText("Regresar al menu");
+        mniregresarMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniregresarMenuActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mniregresarMenu);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Edit");
@@ -418,6 +436,23 @@ public class ClientesMan extends javax.swing.JFrame {
 
     private void mniListCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniListCliActionPerformed
 
+    if(posArr != 0) {
+        
+     
+        if (vtnCliMos == null) {
+            vtnCliMos = new ClientesMostrar(this, clientes);
+        }
+
+        vtnCliMos.posArr = posArr;
+        vtnCliMos.actual = 0;
+        vtnCliMos.cargar_datos(vtnCliMos.actual);
+        
+        vtnCliMos.setVisible(true);
+        this.setVisible(false);
+        limpiar_cajas1();
+    } else {
+        JOptionPane.showMessageDialog(this,"No hay clentes registrados");
+    }
     }//GEN-LAST:event_mniListCliActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -447,6 +482,14 @@ public class ClientesMan extends javax.swing.JFrame {
         limpiar_cajas1();
     
     }//GEN-LAST:event_mniEstabActionPerformed
+
+    private void mniregresarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniregresarMenuActionPerformed
+       
+        this.setVisible(false);
+        vtnPrincipal.setVisible(true);
+        limpiar_cajas();
+        
+    }//GEN-LAST:event_mniregresarMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -505,6 +548,7 @@ public class ClientesMan extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem mniEstab;
     private javax.swing.JMenuItem mniListCli;
+    private javax.swing.JMenuItem mniregresarMenu;
     private javax.swing.JTextField txtBuscado;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtCodigo1;
