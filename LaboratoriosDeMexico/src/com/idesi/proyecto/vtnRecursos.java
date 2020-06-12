@@ -324,7 +324,9 @@ public class vtnRecursos extends javax.swing.JFrame {
         if (posArr < recursos.length) {
             
             if ((!(txtCodigo.getText()).equals(""))
-                && !((txtNombre.getText()).equals(""))) {
+                && !((txtNombre.getText()).equals(""))
+                && !((txtPrecio.getText()).equals(""))
+                && !((txtExist.getText()).equals(""))) {
                 
                 recursos[posArr] = new RecursosMateriales();
                 recursos[posArr].setCodigo(txtCodigo.getText());
@@ -413,7 +415,7 @@ public class vtnRecursos extends javax.swing.JFrame {
     private void ckbModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ckbModificarActionPerformed
         
              if (ckbModificar.isSelected()) {
-                
+                limpiar_cajas1();
                 btnModificar.setEnabled(true);
                 txtCodigo1.setEnabled(false);
                 txtTipo.setEnabled(false);

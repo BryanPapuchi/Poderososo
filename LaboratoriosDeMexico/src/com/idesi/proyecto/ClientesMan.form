@@ -22,6 +22,16 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniListCliActionPerformed"/>
               </Events>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mniEstab">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Establecer una cita"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="mniListCit">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Lista de citas"/>
+              </Properties>
+            </MenuItem>
           </SubComponents>
         </Menu>
       </SubComponents>

@@ -19,6 +19,10 @@ public class ClientesMostrar extends javax.swing.JFrame {
     }
     
     public void cargar_datos(int actual){
+         //txtNombre.setText(clientes[posArr].getNombre());
+         //txtEdad.setText(String.valueOf(clientes[posArr].getEdad()));
+         //txtDom.setText(clientes[posArr].getDomicilio());
+         //txtCodigo.setText(clientes[posArr].getCodigo());
          txtNombre.setText(clientes[actual].getNombre());
          txtEdad.setText(String.valueOf(clientes[actual].getEdad()));
          txtDom.setText(clientes[actual].getDomicilio());
