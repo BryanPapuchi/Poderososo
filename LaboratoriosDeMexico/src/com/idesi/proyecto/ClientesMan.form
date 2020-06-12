@@ -26,11 +26,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Establecer una cita"/>
               </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="mniListCit">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Lista de citas"/>
-              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniEstabActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

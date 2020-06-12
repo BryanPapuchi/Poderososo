@@ -6,14 +6,16 @@ import javax.swing.JOptionPane;
 public class ClientesMan extends javax.swing.JFrame {
 
     Clientes clientes[] = new Clientes[5];
+    Citas citas[] = new Citas[5];
+    
     int posArr = 0;
     int posBusqueda = 0;
     int actual = 0;
     int modificar = 0;
-    int eliminar = 0;
+
     
-    ClientesMostrar vtnCliMos = null;
-    
+    RegistrarCitas vtnRegCit = null;
+    CitasMos vtnCitasMos = null;
     
     public ClientesMan() {
         initComponents();
@@ -67,7 +69,6 @@ public class ClientesMan extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         mniListCli = new javax.swing.JMenuItem();
         mniEstab = new javax.swing.JMenuItem();
-        mniListCit = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Manejo de Clientes");
@@ -155,10 +156,12 @@ public class ClientesMan extends javax.swing.JFrame {
         jMenu2.add(mniListCli);
 
         mniEstab.setText("Establecer una cita");
+        mniEstab.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniEstabActionPerformed(evt);
+            }
+        });
         jMenu2.add(mniEstab);
-
-        mniListCit.setText("Lista de citas");
-        jMenu2.add(mniListCit);
 
         jMenuBar1.add(jMenu2);
 
@@ -300,7 +303,7 @@ public class ClientesMan extends javax.swing.JFrame {
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         
-                if (posArr < clientes.length) {
+        if (posArr < clientes.length) {
             
             if ((!(txtNombre.getText()).equals(""))
                 && !((txtDom.getText()).equals(""))
@@ -399,7 +402,6 @@ public class ClientesMan extends javax.swing.JFrame {
                 && !((txtDom1.getText()).equals(""))
                 && !(txtCodigo1.getText()).equals("")
                 && !(txtEdad1.getText()).equals("")) {
-               // && Double.parseDouble(txtEdad1.getText()) != clientes[modificar].getEdad()) {
             
             clientes[modificar].setNombre(txtNombre1.getText());
             clientes[modificar].setEdad(Double.parseDouble(txtEdad1.getText()));
@@ -416,23 +418,6 @@ public class ClientesMan extends javax.swing.JFrame {
 
     private void mniListCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniListCliActionPerformed
 
-    if (posArr != 0) {
-         if (vtnCliMos == null) {
-            vtnCliMos = new ClientesMostrar(this, clientes);
-        }
-
-        vtnCliMos.posArr = posArr;
-        vtnCliMos.actual = 0;
-        vtnCliMos.cargar_datos(vtnCliMos.actual);
-
-        vtnCliMos.setVisible(true);
-        this.setVisible(false);
-        limpiar_cajas1();
-    
-    } else {
-        
-        JOptionPane.showMessageDialog(this, "No hay clientes que Mostrar.");
-    }
     }//GEN-LAST:event_mniListCliActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -450,6 +435,18 @@ public class ClientesMan extends javax.swing.JFrame {
         limpiar_cajas1();
         
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void mniEstabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniEstabActionPerformed
+         
+        if (vtnRegCit == null) {
+            vtnRegCit = new RegistrarCitas(this, citas);
+        }
+
+        vtnRegCit.setVisible(true);
+        this.setVisible(false);
+        limpiar_cajas1();
+    
+    }//GEN-LAST:event_mniEstabActionPerformed
 
     /**
      * @param args the command line arguments
@@ -507,7 +504,6 @@ public class ClientesMan extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem mniEstab;
-    private javax.swing.JMenuItem mniListCit;
     private javax.swing.JMenuItem mniListCli;
     private javax.swing.JTextField txtBuscado;
     private javax.swing.JTextField txtCodigo;
