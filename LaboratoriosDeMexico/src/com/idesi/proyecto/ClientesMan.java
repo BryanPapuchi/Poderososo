@@ -75,6 +75,7 @@ public class ClientesMan extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         mniregresarMenu = new javax.swing.JMenuItem();
+        mniAyuda = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         mniListCli = new javax.swing.JMenuItem();
         mniEstab = new javax.swing.JMenuItem();
@@ -161,6 +162,14 @@ public class ClientesMan extends javax.swing.JFrame {
         });
         jMenu1.add(mniregresarMenu);
 
+        mniAyuda.setText("Ayuda");
+        mniAyuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniAyudaActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mniAyuda);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Edit");
@@ -212,8 +221,8 @@ public class ClientesMan extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel1)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)))))
+                                        .addGap(0, 42, Short.MAX_VALUE))
+                                    .addComponent(txtNombre)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnGuardar)
@@ -313,7 +322,7 @@ public class ClientesMan extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnModificar)
                     .addComponent(btnEliminar))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();
@@ -328,13 +337,17 @@ public class ClientesMan extends javax.swing.JFrame {
                 && !((txtCodigo.getText()).equals(""))
                 && !((txtEdad.getText()).equals(""))) {
                 
-                clientes[posArr] = new Clientes();
-                clientes[posArr].setNombre(txtNombre.getText());
-                clientes[posArr].setEdad(Double.parseDouble(txtEdad.getText()));
-                clientes[posArr].setDomicilio(txtDom.getText());
-                clientes[posArr].setCodigo(txtCodigo.getText());
-                posArr++;
-                
+//                if (txtEdad.getText().match("[0-9]+")) {
+                    clientes[posArr] = new Clientes();
+                    clientes[posArr].setNombre(txtNombre.getText());
+                    clientes[posArr].setEdad(Double.parseDouble(txtEdad.getText()));
+                    clientes[posArr].setDomicilio(txtDom.getText());
+                    clientes[posArr].setCodigo(txtCodigo.getText());
+                    posArr++;
+//                }else {
+//                      JOptionPane.showMessageDialog(this, "Formato de edad invalido.");
+//                }
+            
             } else {
                 JOptionPane.showMessageDialog(this, "No se puede guardar, espacios sin llenar.");
             }
@@ -491,6 +504,11 @@ public class ClientesMan extends javax.swing.JFrame {
         
     }//GEN-LAST:event_mniregresarMenuActionPerformed
 
+    private void mniAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAyudaActionPerformed
+       
+        JOptionPane.showMessageDialog(this,"Para buscar un cliente es por Nombre. \n" + "Para editar un cliente, se busca por codigo.");
+    }//GEN-LAST:event_mniAyudaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -546,6 +564,7 @@ public class ClientesMan extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem mniAyuda;
     private javax.swing.JMenuItem mniEstab;
     private javax.swing.JMenuItem mniListCli;
     private javax.swing.JMenuItem mniregresarMenu;

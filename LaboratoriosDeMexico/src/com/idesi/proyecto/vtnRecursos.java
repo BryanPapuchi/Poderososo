@@ -87,6 +87,7 @@ public class vtnRecursos extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         mniRegresarMenu = new javax.swing.JMenuItem();
+        mniAyuda = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         mniInventario = new javax.swing.JMenuItem();
 
@@ -167,6 +168,14 @@ public class vtnRecursos extends javax.swing.JFrame {
             }
         });
         jMenu1.add(mniRegresarMenu);
+
+        mniAyuda.setText("Ayuda");
+        mniAyuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniAyudaActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mniAyuda);
 
         jMenuBar1.add(jMenu1);
 
@@ -486,6 +495,12 @@ public class vtnRecursos extends javax.swing.JFrame {
         
     }//GEN-LAST:event_mniRegresarMenuActionPerformed
 
+    private void mniAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAyudaActionPerformed
+     
+           JOptionPane.showMessageDialog(this,"Para buscar un cliente es por Nombre. \n" + "Para editar un cliente, se busca por codigo.");
+           
+    }//GEN-LAST:event_mniAyudaActionPerformed
+
  
     
     
@@ -543,6 +558,7 @@ public class vtnRecursos extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem mniAyuda;
     private javax.swing.JMenuItem mniInventario;
     private javax.swing.JMenuItem mniRegresarMenu;
     private javax.swing.JTextField txtBuscado;

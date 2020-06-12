@@ -47,6 +47,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setText("LABORATORIO DE ANALISIS CLINICOS");
 
+        btnRecursos.setBackground(new java.awt.Color(204, 255, 255));
         btnRecursos.setText("Recursos materiales");
         btnRecursos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,6 +62,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
+        btnClientes.setBackground(new java.awt.Color(204, 255, 204));
         btnClientes.setText("Manejo de Clientes");
         btnClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
