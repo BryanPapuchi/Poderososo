@@ -347,6 +347,7 @@ public class vtnRecursos extends javax.swing.JFrame {
                 && !((txtPrecio.getText()).equals(""))
                 && !((txtExist.getText()).equals(""))) {
                 
+                  
                 recursos[posArr] = new RecursosMateriales();
                 recursos[posArr].setCodigo(txtCodigo.getText());
                 recursos[posArr].setTipoProducto(cmbTipo.getSelectedItem().toString());

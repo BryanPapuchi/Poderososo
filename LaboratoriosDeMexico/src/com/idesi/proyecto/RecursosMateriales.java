@@ -19,7 +19,7 @@ public class RecursosMateriales {
     public RecursosMateriales() {
         this.codigo = "";
         this.tipoProducto = "";
-        this.tipoProducto = "";    
+        this.nombreProducto = "";    
     }
 
     public String getCodigo() {
