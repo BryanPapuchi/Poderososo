@@ -339,10 +339,10 @@ public class ClientesMan extends javax.swing.JFrame {
                 
                 if (txtEdad.getText().matches("[0-9]+")) {
                     clientes[posArr] = new Clientes();
-                    clientes[posArr].setNombre(txtNombre.getText());
-                    clientes[posArr].setEdad(Double.parseDouble(txtEdad.getText()));
-                    clientes[posArr].setDomicilio(txtDom.getText());
-                    clientes[posArr].setCodigo(txtCodigo.getText());
+                    clientes[posArr].setNombre(txtNombre.getText().trim());
+                    clientes[posArr].setEdad(Double.parseDouble(txtEdad.getText().trim()));
+                    clientes[posArr].setDomicilio(txtDom.getText().trim());
+                    clientes[posArr].setCodigo(txtCodigo.getText().trim());
                     posArr++;
                 } else {                  
                         JOptionPane.showMessageDialog(this, "Formato de edad invalido.");                }
@@ -433,10 +433,10 @@ public class ClientesMan extends javax.swing.JFrame {
                 && !(txtCodigo1.getText()).equals("")
                 && !(txtEdad1.getText()).equals("")) {
             
-            clientes[modificar].setNombre(txtNombre1.getText());
-            clientes[modificar].setEdad(Double.parseDouble(txtEdad1.getText()));
-            clientes[modificar].setDomicilio(txtDom1.getText());
-            clientes[modificar].setCodigo(txtCodigo1.getText());
+            clientes[modificar].setNombre(txtNombre1.getText().trim());
+            clientes[modificar].setEdad(Double.parseDouble(txtEdad1.getText().trim()));
+            clientes[modificar].setDomicilio(txtDom1.getText().trim());
+            clientes[modificar].setCodigo(txtCodigo1.getText().trim());
             
             
             limpiar_cajas1();
