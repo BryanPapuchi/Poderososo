@@ -9,20 +9,21 @@
             <Property name="text" type="java.lang.String" value="File"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="mniRegresar">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Regresar a principal"/>
-              </Properties>
-            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mniRegresar1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Regresar a Control Personal"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniRegresar1ActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="mniAyuda">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ayuda"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="mniAyudaActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -65,7 +66,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="btnBuscar" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtIngresar" min="-2" pref="178" max="-2" attributes="0"/>
+                          <Component id="txtBuscado" min="-2" pref="178" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -106,7 +107,7 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="127" max="32767" attributes="0"/>
+              <EmptySpace pref="93" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -116,7 +117,7 @@
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblIngresar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtIngresar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtBuscado" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="btnBuscar" min="-2" max="-2" attributes="0"/>
@@ -164,12 +165,15 @@
         <Property name="text" type="java.lang.String" value="Ingrese el Codigo:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtIngresar">
+    <Component class="javax.swing.JTextField" name="txtBuscado">
     </Component>
     <Component class="javax.swing.JButton" name="btnBuscar">
       <Properties>
         <Property name="text" type="java.lang.String" value="Buscar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblNombre">
       <Properties>

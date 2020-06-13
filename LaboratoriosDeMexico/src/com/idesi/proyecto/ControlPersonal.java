@@ -4,7 +4,7 @@ package com.idesi.proyecto;
 
 public class ControlPersonal {
     public String Nombre, RFC, tipoEmpleado , Codigo, Edad;
-    public double salario;
+    public double Salario;
     
 public ControlPersonal (String Nombre, String RFC, String tipoEmpleado, String Edad, String Codigo){
     this.Nombre = Nombre;
@@ -61,12 +61,12 @@ public String getCodigo(){
     return Codigo;
 }
 
-public void setsalario(double salario){
-    this.salario = salario;
-}
+    public double getSalario() {
+        return Salario;
+    }
 
-public double getsalario(double salario){
-    return salario;
-}
-    
+    public void setSalario(double Salario) {
+        this.Salario = Salario;
+    }
+
 }

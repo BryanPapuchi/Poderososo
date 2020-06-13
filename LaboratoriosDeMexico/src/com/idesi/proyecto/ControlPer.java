@@ -202,17 +202,17 @@ public class ControlPer extends javax.swing.JFrame {
                 persona[posArr].setEdad(txtEdad.getText());
                 persona[posArr].setNombre(txtNombre.getText());
                 persona[posArr].settipoEmpleado(cmbTipo.getSelectedItem().toString());
-                persona[posArr].SetSalario(("$100"));
+                persona[posArr].setSalario(Double.parseDouble(("$100")));
              
-             } else if (cmbTipo.getSelectedItem().toString() == "Laboratotistas" ) {
+             } else if (cmbTipo.getSelectedItem().toString() == "Laboratoristas" ) {
                
-                 persona[posArr] = new ControlPersonal();
+                persona[posArr] = new ControlPersonal();
                 persona[posArr].setCodigo(txtCodigo.getText());
                 persona[posArr].setRFC(txtRFC.getText());
                 persona[posArr].setEdad(txtEdad.getText());
                 persona[posArr].setNombre(txtNombre.getText());
                 persona[posArr].settipoEmpleado(cmbTipo.getSelectedItem().toString());
-                
+                persona[posArr].setSalario(Double.parseDouble(("$150")));
                 
                 posArr++;
              }

@@ -1,19 +1,31 @@
 
 package com.idesi.proyecto;
 
+import javax.swing.JOptionPane;
+
 public class BuscarControlPer extends javax.swing.JFrame {
     
     ControlPersonal persona[] = new ControlPersonal[5];
     ControlPer vtnControlPer;
     int posArr;
     int actual = 0;
-    int busqueda;
+    int posBusqueda;
+    int modificar = 0;
     
     
 
    
     public BuscarControlPer() {
         initComponents();
+    }
+    
+    public void limpiar_cajas(){
+        txtNombre.setText("");
+        txtEdad.setText("");
+        txtRFC.setText("");
+        txtCodigo.setText("");
+        txtTipo.setText("");
+        txtSalario.setText("");
     }
 
     /*public Buscar(ControlPer vtnControlPer , ControlPersonal persona[]){
@@ -26,7 +38,7 @@ public class BuscarControlPer extends javax.swing.JFrame {
     private void initComponents() {
 
         lblIngresar = new javax.swing.JLabel();
-        txtIngresar = new javax.swing.JTextField();
+        txtBuscado = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         lblNombre = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
@@ -42,7 +54,6 @@ public class BuscarControlPer extends javax.swing.JFrame {
         txtSalario = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        mniRegresar = new javax.swing.JMenuItem();
         mniRegresar1 = new javax.swing.JMenuItem();
         mniAyuda = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
@@ -53,6 +64,11 @@ public class BuscarControlPer extends javax.swing.JFrame {
         lblIngresar.setText("Ingrese el Codigo:");
 
         btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         lblNombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblNombre.setText("Nombre:");
@@ -74,13 +90,20 @@ public class BuscarControlPer extends javax.swing.JFrame {
 
         jMenu1.setText("File");
 
-        mniRegresar.setText("Regresar a principal");
-        jMenu1.add(mniRegresar);
-
         mniRegresar1.setText("Regresar a Control Personal");
+        mniRegresar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniRegresar1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(mniRegresar1);
 
         mniAyuda.setText("Ayuda");
+        mniAyuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniAyudaActionPerformed(evt);
+            }
+        });
         jMenu1.add(mniAyuda);
 
         jMenuBar1.add(jMenu1);
@@ -102,7 +125,7 @@ public class BuscarControlPer extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnBuscar)
-                            .addComponent(txtIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,7 +154,7 @@ public class BuscarControlPer extends javax.swing.JFrame {
                                     .addComponent(lblRFC)
                                     .addGap(18, 18, 18)
                                     .addComponent(txtRFC, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,7 +162,7 @@ public class BuscarControlPer extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblIngresar)
-                    .addComponent(txtIngresar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnBuscar)
                 .addGap(18, 18, 18)
@@ -171,6 +194,51 @@ public class BuscarControlPer extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+            if (!(txtBuscado.getText()).equals("")) {
+            String productoBuscada = txtBuscado.getText();
+            for (int i = 0; i < posArr; i++) {
+                
+               
+                
+                    if ((persona[i].getCodigo()).equalsIgnoreCase(productoBuscada)) {
+                        posBusqueda = i;
+                        break;
+                    
+                    }
+                
+                } 
+            
+            
+            txtBuscado.setText("");
+
+            if (posBusqueda < 5) {
+                txtNombre.setText(persona[posBusqueda].getCodigo());
+                txtTipo.setText(persona[posBusqueda].gettipoEmpleado());
+                txtEdad.setText(persona[posBusqueda].getEdad());
+                txtRFC.setText(persona[posBusqueda].getRFC());
+                txtCodigo.setText(persona[posBusqueda].getCodigo());
+                modificar = posBusqueda;
+                posBusqueda = 5;
+            } else {
+                JOptionPane.showMessageDialog(this, "Nombre no encontrado");
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Casilla en blanco");
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void mniAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAyudaActionPerformed
+        JOptionPane.showMessageDialog(this, "La busqueda del empleado es por codigo");
+    }//GEN-LAST:event_mniAyudaActionPerformed
+
+    private void mniRegresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniRegresar1ActionPerformed
+        this.setVisible(false);
+        vtnControlPer.setVisible(true);
+         limpiar_cajas();
+    }//GEN-LAST:event_mniRegresar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,11 +289,10 @@ public class BuscarControlPer extends javax.swing.JFrame {
     private javax.swing.JLabel lblSalario;
     private javax.swing.JLabel lblTipo;
     private javax.swing.JMenuItem mniAyuda;
-    private javax.swing.JMenuItem mniRegresar;
     private javax.swing.JMenuItem mniRegresar1;
+    private javax.swing.JTextField txtBuscado;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtEdad;
-    private javax.swing.JTextField txtIngresar;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtRFC;
     private javax.swing.JTextField txtSalario;
