@@ -12,7 +12,7 @@ public class Principal extends javax.swing.JFrame {
     
     RecursosMateriales recursos = new RecursosMateriales();
     Clientes clientes = new Clientes();
-    ControlPersonal  persona = new ControlPersonal();
+    ControlPersonal persona = new ControlPersonal();
     
     public Principal() {
         initComponents();
@@ -164,12 +164,12 @@ public class Principal extends javax.swing.JFrame {
 
     private void btnControlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnControlActionPerformed
        
-       /*if (vtnControlPer == null) {
+        if (vtnControlPer == null) {
             vtnControlPer = new ControlPer (this, persona);
         }
 
         vtnControlPer.setVisible(true);
-        this.setVisible(false);*/
+        this.setVisible(false);
     }//GEN-LAST:event_btnControlActionPerformed
 
     private void mniSalirSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniSalirSistemaActionPerformed
