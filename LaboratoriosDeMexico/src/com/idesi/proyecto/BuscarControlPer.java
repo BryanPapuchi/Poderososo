@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 
 public class BuscarControlPer extends javax.swing.JFrame {
     
-    ControlPersonal persona[] = new ControlPersonal[5];
+    Empleado Empleados[] = new Empleado[5];
     ControlPer vtnControlPer;
     int posArr;
     int actual = 0;
@@ -19,9 +19,9 @@ public class BuscarControlPer extends javax.swing.JFrame {
         initComponents();
     }
     
-    public BuscarControlPer(ControlPer vtnControlPer, ControlPersonal[] persona){
+    public BuscarControlPer(ControlPer vtnControlPer, Empleado[] Empleados){
         this.vtnControlPer = vtnControlPer;
-        this.persona = persona;
+        this.Empleados = Empleados;
     }
     
     public void limpiar_cajas(){
@@ -31,6 +31,14 @@ public class BuscarControlPer extends javax.swing.JFrame {
         txtCodigo.setText("");
         txtTipo.setText("");
         txtSalario.setText("");
+    }
+    
+    public void Cargar_Datos(int actual){
+        txtNombre.setText(Empleados[actual].getNombre());
+        txtRFC.setText(Empleados[actual].getRFC());
+        txtEdad.setText(Empleados[actual].getEdad());
+        txtCodigo.setText(Empleados[actual].getCodigo());
+        txtTipo.setText(Empleados[actual].gettipoEmpleado());
     }
 
     /*public Buscar(ControlPer vtnControlPer , ControlPersonal persona[]){
@@ -61,7 +69,6 @@ public class BuscarControlPer extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         mniRegresar1 = new javax.swing.JMenuItem();
         mniAyuda = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -112,9 +119,6 @@ public class BuscarControlPer extends javax.swing.JFrame {
         jMenu1.add(mniAyuda);
 
         jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -207,7 +211,7 @@ public class BuscarControlPer extends javax.swing.JFrame {
                 
                
                 
-                    if ((persona[i].getCodigo()).equalsIgnoreCase(productoBuscada)) {
+                    if ((Empleados[i].getCodigo()).equalsIgnoreCase(productoBuscada)) {
                         posBusqueda = i;
                         break;
                     
@@ -219,11 +223,11 @@ public class BuscarControlPer extends javax.swing.JFrame {
             txtBuscado.setText("");
 
             if (posBusqueda < 5) {
-                txtNombre.setText(persona[posBusqueda].getCodigo());
-                txtTipo.setText(persona[posBusqueda].gettipoEmpleado());
-                txtEdad.setText(persona[posBusqueda].getEdad());
-                txtRFC.setText(persona[posBusqueda].getRFC());
-                txtCodigo.setText(persona[posBusqueda].getCodigo());
+                txtNombre.setText(Empleados[posBusqueda].getCodigo());
+                txtTipo.setText(Empleados[posBusqueda].gettipoEmpleado());
+                txtEdad.setText(Empleados[posBusqueda].getEdad());
+                txtRFC.setText(Empleados[posBusqueda].getRFC());
+                txtCodigo.setText(Empleados[posBusqueda].getCodigo());
                 modificar = posBusqueda;
                 posBusqueda = 5;
             } else {
@@ -236,10 +240,12 @@ public class BuscarControlPer extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void mniAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAyudaActionPerformed
+        
         JOptionPane.showMessageDialog(this, "La busqueda del empleado es por codigo");
     }//GEN-LAST:event_mniAyudaActionPerformed
 
     private void mniRegresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniRegresar1ActionPerformed
+       
         this.setVisible(false);
         vtnControlPer.setVisible(true);
         limpiar_cajas();
@@ -284,7 +290,6 @@ public class BuscarControlPer extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblEdad;

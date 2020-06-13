@@ -6,19 +6,20 @@ import javax.swing.JOptionPane;
 
 public class ControlPer extends javax.swing.JFrame {
     
-    ControlPersonal persona[] = new ControlPersonal[5];
-    ControlPersonal persona1 = new ControlPersonal();
+    Empleado Empleados[] = new Empleado[5];
+    Empleado Empleados1 = new Empleado();
     int posArr = 0;
     Principal vtnPrincipal;
     BuscarControlPer vtnBuscarControlPer;
+    boolean salario = false;
     
     public ControlPer() {
         initComponents();
     }
     
-    public ControlPer(Principal vtnPrincipal, ControlPersonal persona1){
+    public ControlPer(Principal vtnPrincipal, Empleado persona1){
         this.vtnPrincipal = vtnPrincipal;
-        this.persona1 = persona1;
+        this.Empleados1 = persona1;
         initComponents();
     }
     
@@ -30,10 +31,10 @@ public class ControlPer extends javax.swing.JFrame {
     }
     
     public void Cargar_Datos(int actual){
-        txtNombre.setText(persona[actual].getNombre());
-        txtRFC.setText(persona[actual].getRFC());
-        txtEdad.setText(persona[actual].getEdad());
-        txtCodigo.setText(persona[actual].getCodigo());
+        txtNombre.setText(Empleados[actual].getNombre());
+        txtRFC.setText(Empleados[actual].getRFC());
+        txtEdad.setText(Empleados[actual].getEdad());
+        txtCodigo.setText(Empleados[actual].getCodigo());
     }
 
     
@@ -53,7 +54,9 @@ public class ControlPer extends javax.swing.JFrame {
         txtCodigo = new javax.swing.JTextField();
         cmbTipo = new javax.swing.JComboBox<>();
         btnGuardar = new javax.swing.JButton();
-        btnReporte = new javax.swing.JButton();
+        btnBuscar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        txtAlmacen = new javax.swing.JTextField();
         menuControl = new javax.swing.JMenuBar();
         jmArchivo = new javax.swing.JMenu();
         miRegresar = new javax.swing.JMenuItem();
@@ -90,14 +93,19 @@ public class ControlPer extends javax.swing.JFrame {
             }
         });
 
-        btnReporte.setBackground(new java.awt.Color(102, 255, 204));
-        btnReporte.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnReporte.setText("Buscar Empleado");
-        btnReporte.addActionListener(new java.awt.event.ActionListener() {
+        btnBuscar.setBackground(new java.awt.Color(102, 255, 204));
+        btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnBuscar.setText("Buscar Empleado");
+        btnBuscar.setEnabled(false);
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReporteActionPerformed(evt);
+                btnBuscarActionPerformed(evt);
             }
         });
+
+        jLabel3.setText("Personas Almacenadas:");
+
+        txtAlmacen.setText("0");
 
         jmArchivo.setText("Archivo");
 
@@ -130,6 +138,10 @@ public class ControlPer extends javax.swing.JFrame {
                         .addGap(67, 67, 67)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(81, 81, 81)
+                                .addComponent(jLabel1)
+                                .addGap(59, 59, 59))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel2)
                                     .addComponent(lblCodigoP)
@@ -143,52 +155,64 @@ public class ControlPer extends javax.swing.JFrame {
                                     .addComponent(txtEdad)
                                     .addComponent(txtRFC)
                                     .addComponent(txtCodigo)
-                                    .addComponent(cmbTipo, 0, 160, Short.MAX_VALUE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(81, 81, 81)
-                                .addComponent(jLabel1))))
+                                    .addComponent(cmbTipo, 0, 160, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(61, 61, 61)
+                                        .addComponent(txtAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                                        .addComponent(jLabel3)
+                                        .addGap(31, 31, 31))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(btnReporte)))
-                .addContainerGap(171, Short.MAX_VALUE))
+                        .addComponent(btnBuscar)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel1)
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblNombre)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblEdad)
-                    .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblRFC)
-                    .addComponent(txtRFC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCodigoP)
-                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(cmbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnReporte)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel1)
+                        .addGap(39, 39, 39)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblNombre)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEdad)
+                            .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblRFC)
+                            .addComponent(txtRFC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblCodigoP)
+                            .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(cmbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBuscar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(147, 147, 147)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-                if (posArr < persona.length) {
+            /*if (posArr < persona.length) {
             
             if ((!(txtCodigo.getText()).equals(""))
                 && !((txtNombre.getText()).equals(""))
@@ -196,16 +220,19 @@ public class ControlPer extends javax.swing.JFrame {
                 && !((txtRFC.getText()).equals(""))
                 && !((txtCodigo.getText()).equals(""))){
                 
-             if (cmbTipo.getSelectedItem().toString() == "Administrativos") {
-                 persona[posArr] = new ControlPersonal();
+              if(cmbTipo.getSelectedItem().toString() == "Laboratoristas"){
+                persona[posArr] = new ControlPersonal();
                 persona[posArr].setCodigo(txtCodigo.getText());
                 persona[posArr].setRFC(txtRFC.getText());
                 persona[posArr].setEdad(txtEdad.getText());
                 persona[posArr].setNombre(txtNombre.getText());
                 persona[posArr].settipoEmpleado(cmbTipo.getSelectedItem().toString());
-                persona[posArr].setSalario(Double.parseDouble(("$100")));
-             
-             } else if (cmbTipo.getSelectedItem().toString() == "Laboratoristas" ) {
+                salario = true;
+                
+                 posArr++;
+                 
+                 JOptionPane.showMessageDialog(this, "Lavoratorista guardado");
+              }else{
                
                 persona[posArr] = new ControlPersonal();
                 persona[posArr].setCodigo(txtCodigo.getText());
@@ -213,10 +240,19 @@ public class ControlPer extends javax.swing.JFrame {
                 persona[posArr].setEdad(txtEdad.getText());
                 persona[posArr].setNombre(txtNombre.getText());
                 persona[posArr].settipoEmpleado(cmbTipo.getSelectedItem().toString());
-                persona[posArr].setSalario(Double.parseDouble(("$150")));
-                
+                 
                 posArr++;
-             }
+                
+                JOptionPane.showMessageDialog(this, "Administrativo guardado");
+            
+              }
+              
+              if(salario == true){
+                 persona[posArr].Salario = 150;
+              }else{
+                  persona[posArr].Salario = 100;
+              }
+              
             } else {
                 JOptionPane.showMessageDialog(this, "No se puede guardar, espacios sin llenar.");
             }
@@ -224,23 +260,55 @@ public class ControlPer extends javax.swing.JFrame {
         } else {
             
              JOptionPane.showMessageDialog(this, "El almacenamiento esta completo.");
-        }
+        }*/
+            if(posArr < Empleados.length){
+            Empleados[posArr] = new Empleado();
+            Empleados[posArr].setNombre(txtNombre.getText());
+            Empleados[posArr].setEdad(txtEdad.getText());
+            Empleados[posArr].setRFC(txtRFC.getText());
+            Empleados[posArr].setCodigo(txtCodigo.getText());
+            Empleados[posArr].settipoEmpleado(cmbTipo.getSelectedItem().toString());
+            posArr++;       
+            txtAlmacen.setText(String.valueOf(posArr));
+            
+            //Habilitar el botón Abrir Ventana
+            if(posArr>0) {
+                btnBuscar.setEnabled(true);
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "El almacenamiento esta completo");
+        }  
+        limpiar_cajas();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void miRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miRegresarActionPerformed
-         this.setVisible(false);
+         
+        this.setVisible(false);
          vtnPrincipal.setVisible(true);
          limpiar_cajas();
     }//GEN-LAST:event_miRegresarActionPerformed
 
-    private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        
+        if (posArr > 0) {
+        
         if (vtnBuscarControlPer == null) {
-            vtnBuscarControlPer = new BuscarControlPer (this, persona);
+            vtnBuscarControlPer = new BuscarControlPer(this, Empleados);
         }
+
+        vtnBuscarControlPer.posArr = posArr;
+        vtnBuscarControlPer.actual = 0;
+        vtnBuscarControlPer.Cargar_Datos(vtnBuscarControlPer.actual);
 
         vtnBuscarControlPer.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_btnReporteActionPerformed
+        limpiar_cajas();
+
+    } else {
+        JOptionPane.showMessageDialog(this, "No hay recursos registrados.");
+     }
+        
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -278,11 +346,12 @@ public class ControlPer extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnReporte;
     private javax.swing.JComboBox<String> cmbTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jmArchivo;
     private javax.swing.JMenu jmEdicion;
     private javax.swing.JLabel lblCodigoP;
@@ -291,6 +360,7 @@ public class ControlPer extends javax.swing.JFrame {
     private javax.swing.JLabel lblRFC;
     private javax.swing.JMenuBar menuControl;
     private javax.swing.JMenuItem miRegresar;
+    private javax.swing.JTextField txtAlmacen;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtEdad;
     private javax.swing.JTextField txtNombre;
