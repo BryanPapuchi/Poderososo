@@ -8,9 +8,11 @@ public class Principal extends javax.swing.JFrame {
 
     vtnRecursos vtnRecursos = null;
     ClientesMan vtnClientes = null;
+    ControlPer vtnControlPer = null;
     
     RecursosMateriales recursos = new RecursosMateriales();
     Clientes clientes = new Clientes();
+    ControlPersonal  persona = new ControlPersonal();
     
     public Principal() {
         initComponents();
@@ -28,7 +30,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnRecursos = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnControl = new javax.swing.JButton();
         btnClientes = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -55,10 +57,10 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Control de personal");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnControl.setText("Control de personal");
+        btnControl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnControlActionPerformed(evt);
             }
         });
 
@@ -118,7 +120,7 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(61, 61, 61)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnRecursos)
-                            .addComponent(jButton2))
+                            .addComponent(btnControl))
                         .addGap(110, 110, 110)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnClientes)
@@ -144,7 +146,7 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(btnClientes))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
+                    .addComponent(btnControl)
                     .addComponent(btnSalir))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addComponent(jLabel4))
@@ -160,9 +162,15 @@ public class Principal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void btnControlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnControlActionPerformed
+       
+       /*  if (vtnControlPer == null) {
+            vtnControlPer = new ControlPer (this, persona);
+        }
+
+        vtnControlPer.setVisible(true);
+        this.setVisible(false);*/
+    }//GEN-LAST:event_btnControlActionPerformed
 
     private void mniSalirSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniSalirSistemaActionPerformed
         System.exit(0);
@@ -231,9 +239,9 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClientes;
+    private javax.swing.JButton btnControl;
     private javax.swing.JButton btnRecursos;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

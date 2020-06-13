@@ -3,10 +3,10 @@ package com.idesi.proyecto;
 
 
 public class ControlPersonal {
-    public String Nombre, RFC, tipoEmpleado ;
-    public double Edad, Codigo ;
+    public String Nombre, RFC, tipoEmpleado , Codigo, Edad;
     
-public ControlPersonal (String Nombre, String RFC, String tipoEmpleado, double Edad, double Codigo){
+    
+public ControlPersonal (String Nombre, String RFC, String tipoEmpleado, String Edad, String Codigo){
     this.Nombre = Nombre;
     this.RFC = RFC;
     this.Codigo = Codigo;
@@ -45,19 +45,19 @@ public String gettipoEmpleado(){
     return tipoEmpleado;
 }
 
-public void setEdad(double Edad){
+public void setEdad(String Edad){
     this.Edad = Edad;
 }
 
-public double getEdad(){
+public String getEdad(){
     return Edad;
 }
 
-public void setCodigo(double Codigo){
+public void setCodigo(String Codigo){
     this.Codigo = Codigo;
 }
 
-public double getCodigo(){
+public String getCodigo(){
     return Codigo;
 }
     
