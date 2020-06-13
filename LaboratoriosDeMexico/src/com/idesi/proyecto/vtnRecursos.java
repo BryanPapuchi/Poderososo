@@ -355,7 +355,8 @@ public class vtnRecursos extends javax.swing.JFrame {
                 && !((txtNombre.getText()).equals(""))
                 && !((txtPrecio.getText()).equals(""))
                 && !((txtExist.getText()).equals(""))) {
-                
+                 
+                if (txtPrecio.getText().matches("[0-9]+") && txtExist.getText().matches("[0-9]+")) {
                   
                 recursos[posArr] = new RecursosMateriales();
                 recursos[posArr].setCodigo(txtCodigo.getText());
@@ -364,6 +365,10 @@ public class vtnRecursos extends javax.swing.JFrame {
                 recursos[posArr].setExistencia(Double.parseDouble(txtExist.getText()));
                 recursos[posArr].setPrecio(Double.parseDouble(txtPrecio.getText()));
                 posArr++;
+                
+                } else {
+                    JOptionPane.showMessageDialog(this, "Formato de edad/Existencia invalido.");
+                }
                 
             } else {
                 JOptionPane.showMessageDialog(this, "No se puede guardar, espacios sin llenar.");
