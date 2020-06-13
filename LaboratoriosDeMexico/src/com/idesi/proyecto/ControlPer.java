@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 public class ControlPer extends javax.swing.JFrame {
     
     ControlPersonal persona[] = new ControlPersonal[5];
+    ControlPersonal persona1 = new ControlPersonal();
     int posArr = 0;
     Principal vtnPrincipal;
     
@@ -14,9 +15,9 @@ public class ControlPer extends javax.swing.JFrame {
         initComponents();
     }
     
-    public ControlPer (Principal vtnPrincipal, ControlPersonal[] persona){
+    public ControlPer(Principal vtnPrincipal, ControlPersonal persona1){
         this.vtnPrincipal = vtnPrincipal;
-        this.persona = persona;
+        this.persona1 = persona1;
         initComponents();
     }
     
@@ -194,16 +195,27 @@ public class ControlPer extends javax.swing.JFrame {
                 && !((txtRFC.getText()).equals(""))
                 && !((txtCodigo.getText()).equals(""))){
                 
-                  
-                persona[posArr] = new ControlPersonal();
+             if (cmbTipo.getSelectedItem().toString() == "Administrativos") {
+                 persona[posArr] = new ControlPersonal();
                 persona[posArr].setCodigo(txtCodigo.getText());
                 persona[posArr].setRFC(txtRFC.getText());
                 persona[posArr].setEdad(txtEdad.getText());
                 persona[posArr].setNombre(txtNombre.getText());
                 persona[posArr].settipoEmpleado(cmbTipo.getSelectedItem().toString());
-            
-                posArr++;
+                persona[posArr].SetSalario(("$100"));
+             
+             } else if (cmbTipo.getSelectedItem().toString() == "Laboratotistas" ) {
+               
+                 persona[posArr] = new ControlPersonal();
+                persona[posArr].setCodigo(txtCodigo.getText());
+                persona[posArr].setRFC(txtRFC.getText());
+                persona[posArr].setEdad(txtEdad.getText());
+                persona[posArr].setNombre(txtNombre.getText());
+                persona[posArr].settipoEmpleado(cmbTipo.getSelectedItem().toString());
                 
+                
+                posArr++;
+             }
             } else {
                 JOptionPane.showMessageDialog(this, "No se puede guardar, espacios sin llenar.");
             }
