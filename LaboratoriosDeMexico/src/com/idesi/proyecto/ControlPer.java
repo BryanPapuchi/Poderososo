@@ -51,7 +51,7 @@ public class ControlPer extends javax.swing.JFrame {
         txtCodigo = new javax.swing.JTextField();
         cmbTipo = new javax.swing.JComboBox<>();
         btnGuardar = new javax.swing.JButton();
-        btnMostrar = new javax.swing.JButton();
+        btnReporte = new javax.swing.JButton();
         menuControl = new javax.swing.JMenuBar();
         jmArchivo = new javax.swing.JMenu();
         miRegresar = new javax.swing.JMenuItem();
@@ -88,12 +88,12 @@ public class ControlPer extends javax.swing.JFrame {
             }
         });
 
-        btnMostrar.setBackground(new java.awt.Color(102, 255, 204));
-        btnMostrar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnMostrar.setText("Mostrar");
-        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
+        btnReporte.setBackground(new java.awt.Color(102, 255, 204));
+        btnReporte.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnReporte.setText("Reporte Empleados");
+        btnReporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMostrarActionPerformed(evt);
+                btnReporteActionPerformed(evt);
             }
         });
 
@@ -147,7 +147,7 @@ public class ControlPer extends javax.swing.JFrame {
                                 .addComponent(jLabel1))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(btnMostrar)))
+                        .addComponent(btnReporte)))
                 .addContainerGap(171, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -178,7 +178,7 @@ public class ControlPer extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnMostrar)
+                .addComponent(btnReporte)
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -220,9 +220,9 @@ public class ControlPer extends javax.swing.JFrame {
          limpiar_cajas();
     }//GEN-LAST:event_miRegresarActionPerformed
 
-    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
+    private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
         
-    }//GEN-LAST:event_btnMostrarActionPerformed
+    }//GEN-LAST:event_btnReporteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -261,7 +261,7 @@ public class ControlPer extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnGuardar;
-    private javax.swing.JButton btnMostrar;
+    private javax.swing.JButton btnReporte;
     private javax.swing.JComboBox<String> cmbTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

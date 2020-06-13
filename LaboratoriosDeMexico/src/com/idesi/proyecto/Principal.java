@@ -164,7 +164,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void btnControlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnControlActionPerformed
        
-       /*  if (vtnControlPer == null) {
+       /*if (vtnControlPer == null) {
             vtnControlPer = new ControlPer (this, persona);
         }
 
