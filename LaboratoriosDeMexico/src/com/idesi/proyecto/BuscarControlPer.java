@@ -19,6 +19,11 @@ public class BuscarControlPer extends javax.swing.JFrame {
         initComponents();
     }
     
+    public BuscarControlPer(ControlPer vtnControlPer, ControlPersonal[] persona){
+        this.vtnControlPer = vtnControlPer;
+        this.persona = persona;
+    }
+    
     public void limpiar_cajas(){
         txtNombre.setText("");
         txtEdad.setText("");
@@ -237,7 +242,7 @@ public class BuscarControlPer extends javax.swing.JFrame {
     private void mniRegresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniRegresar1ActionPerformed
         this.setVisible(false);
         vtnControlPer.setVisible(true);
-         limpiar_cajas();
+        limpiar_cajas();
     }//GEN-LAST:event_mniRegresar1ActionPerformed
 
     /**

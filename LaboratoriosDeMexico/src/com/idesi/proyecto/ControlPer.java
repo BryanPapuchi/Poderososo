@@ -10,6 +10,7 @@ public class ControlPer extends javax.swing.JFrame {
     ControlPersonal persona1 = new ControlPersonal();
     int posArr = 0;
     Principal vtnPrincipal;
+    BuscarControlPer vtnBuscarControlPer;
     
     public ControlPer() {
         initComponents();
@@ -91,7 +92,7 @@ public class ControlPer extends javax.swing.JFrame {
 
         btnReporte.setBackground(new java.awt.Color(102, 255, 204));
         btnReporte.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnReporte.setText("Reporte Empleados");
+        btnReporte.setText("Buscar Empleado");
         btnReporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReporteActionPerformed(evt);
@@ -233,7 +234,12 @@ public class ControlPer extends javax.swing.JFrame {
     }//GEN-LAST:event_miRegresarActionPerformed
 
     private void btnReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReporteActionPerformed
-        
+        if (vtnBuscarControlPer == null) {
+            vtnBuscarControlPer = new BuscarControlPer (this, persona);
+        }
+
+        vtnBuscarControlPer.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnReporteActionPerformed
 
     /**
