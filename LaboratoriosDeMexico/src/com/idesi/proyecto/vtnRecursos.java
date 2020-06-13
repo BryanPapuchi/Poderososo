@@ -359,15 +359,15 @@ public class vtnRecursos extends javax.swing.JFrame {
                 if (txtPrecio.getText().matches("[0-9]+") && txtExist.getText().matches("[0-9]+")) {
                   
                 recursos[posArr] = new RecursosMateriales();
-                recursos[posArr].setCodigo(txtCodigo.getText());
+                recursos[posArr].setCodigo(txtCodigo.getText().trim());
                 recursos[posArr].setTipoProducto(cmbTipo.getSelectedItem().toString());
-                recursos[posArr].setNombreProducto(txtNombre.getText());
-                recursos[posArr].setExistencia(Double.parseDouble(txtExist.getText()));
-                recursos[posArr].setPrecio(Double.parseDouble(txtPrecio.getText()));
+                recursos[posArr].setNombreProducto(txtNombre.getText().trim());
+                recursos[posArr].setExistencia(Double.parseDouble(txtExist.getText().trim()));
+                recursos[posArr].setPrecio(Double.parseDouble(txtPrecio.getText().trim()));
                 posArr++;
                 
                 } else {
-                    JOptionPane.showMessageDialog(this, "Formato de edad/Existencia invalido.");
+                    JOptionPane.showMessageDialog(this, "Formato de Edad / Existencia invalido.");
                 }
                 
             } else {
@@ -393,7 +393,7 @@ public class vtnRecursos extends javax.swing.JFrame {
             recursos[modificar].setTipoProducto(txtTipo.getText());
             recursos[modificar].setNombreProducto(txtNombre1.getText());
             recursos[modificar].setExistencia(Double.parseDouble(txtExist1.getText()));
-            recursos[modificar].setPrecio(Double.parseDouble(txtPrecio1.getText()));
+            recursos[modificar].setPrecio(Double.parseDouble(txtPrecio1.getText().trim()));
            
             limpiar_cajas1();
             

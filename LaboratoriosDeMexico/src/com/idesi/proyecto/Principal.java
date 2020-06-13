@@ -199,6 +199,7 @@ public class Principal extends javax.swing.JFrame {
 
         vtnClientes.setVisible(true);
         this.setVisible(false);
+        JOptionPane.showMessageDialog(vtnClientes, "Para modifcar un dato, favor de marcar la casilla");
         
     }//GEN-LAST:event_btnClientesActionPerformed
 
