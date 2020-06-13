@@ -337,16 +337,15 @@ public class ClientesMan extends javax.swing.JFrame {
                 && !((txtCodigo.getText()).equals(""))
                 && !((txtEdad.getText()).equals(""))) {
                 
-//                if (txtEdad.getText().match("[0-9]+")) {
+                if (txtEdad.getText().matches("[0-9]+")) {
                     clientes[posArr] = new Clientes();
                     clientes[posArr].setNombre(txtNombre.getText());
                     clientes[posArr].setEdad(Double.parseDouble(txtEdad.getText()));
                     clientes[posArr].setDomicilio(txtDom.getText());
                     clientes[posArr].setCodigo(txtCodigo.getText());
                     posArr++;
-//                }else {
-//                      JOptionPane.showMessageDialog(this, "Formato de edad invalido.");
-//                }
+                } else {                  
+                        JOptionPane.showMessageDialog(this, "Formato de edad invalido.");                }
             
             } else {
                 JOptionPane.showMessageDialog(this, "No se puede guardar, espacios sin llenar.");
