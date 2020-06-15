@@ -463,7 +463,7 @@ public class ClientesMan extends javax.swing.JFrame {
         this.setVisible(false);
         limpiar_cajas1();
     } else {
-        JOptionPane.showMessageDialog(this,"No hay clentes registrados");
+        JOptionPane.showMessageDialog(this,"No hay clientes registrados");
     }
     }//GEN-LAST:event_mniListCliActionPerformed
 
