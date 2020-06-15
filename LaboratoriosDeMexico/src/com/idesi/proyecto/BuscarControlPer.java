@@ -22,6 +22,7 @@ public class BuscarControlPer extends javax.swing.JFrame {
     public BuscarControlPer(ControlPer vtnControlPer, Empleado[] Empleados){
         this.vtnControlPer = vtnControlPer;
         this.Empleados = Empleados;
+        initComponents();
     }
     
     public void limpiar_cajas(){
@@ -100,7 +101,7 @@ public class BuscarControlPer extends javax.swing.JFrame {
         lblSalario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblSalario.setText("Salario:");
 
-        jMenu1.setText("File");
+        jMenu1.setText("Archivo");
 
         mniRegresar1.setText("Regresar a Control Personal");
         mniRegresar1.addActionListener(new java.awt.event.ActionListener() {
@@ -209,16 +210,11 @@ public class BuscarControlPer extends javax.swing.JFrame {
             String productoBuscada = txtBuscado.getText();
             for (int i = 0; i < posArr; i++) {
                 
-               
-                
                     if ((Empleados[i].getCodigo()).equalsIgnoreCase(productoBuscada)) {
                         posBusqueda = i;
                         break;
-                    
                     }
-                
-                } 
-            
+                }
             
             txtBuscado.setText("");
 
