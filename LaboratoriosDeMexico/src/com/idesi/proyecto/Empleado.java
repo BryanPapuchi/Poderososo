@@ -2,11 +2,11 @@
 package com.idesi.proyecto;
 
 
-public class ControlPersonal {
+public class Empleado {
     public String Nombre, RFC, tipoEmpleado , Codigo, Edad;
     public double Salario;
     
-public ControlPersonal (String Nombre, String RFC, String tipoEmpleado, String Edad, String Codigo){
+public Empleado (String Nombre, String RFC, String tipoEmpleado, String Edad, String Codigo){
     this.Nombre = Nombre;
     this.RFC = RFC;
     this.Codigo = Codigo;
@@ -14,7 +14,7 @@ public ControlPersonal (String Nombre, String RFC, String tipoEmpleado, String E
     this.tipoEmpleado = tipoEmpleado;
 }
 
-public ControlPersonal (){
+public Empleado (){
     this.Nombre = "";
     this.RFC = "";
     this.tipoEmpleado="";

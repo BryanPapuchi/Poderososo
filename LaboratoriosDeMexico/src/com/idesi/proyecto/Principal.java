@@ -5,14 +5,14 @@ import javax.swing.JOptionPane;
 
 
 public class Principal extends javax.swing.JFrame {
-
+    
     vtnRecursos vtnRecursos = null;
     ClientesMan vtnClientes = null;
     ControlPer vtnControlPer = null;
     
     RecursosMateriales recursos = new RecursosMateriales();
     Clientes clientes = new Clientes();
-    ControlPersonal persona = new ControlPersonal();
+    Empleado Empleados = new Empleado();
     
     public Principal() {
         initComponents();
@@ -161,7 +161,7 @@ public class Principal extends javax.swing.JFrame {
     private void btnControlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnControlActionPerformed
        
         if (vtnControlPer == null) {
-            vtnControlPer = new ControlPer (this, persona);
+            vtnControlPer = new ControlPer (this, Empleados);
         }
 
         vtnControlPer.setVisible(true);
