@@ -12,6 +12,7 @@ public class ControlPer extends javax.swing.JFrame {
     int posArr = 0;
     int acual = 0;
     int profesion = 0;
+    public int aumento = 0;
     
     Principal vtnPrincipal = null;
     BuscarControlPer vtnBuscarControlPer = null;
@@ -298,8 +299,14 @@ public class ControlPer extends javax.swing.JFrame {
                 Empleados[posArr].setNombre(txtNombre.getText());
                 Empleados[posArr].settipoEmpleado(cmbTipo.getSelectedItem().toString());
                 profesion = 150;
-                Empleados[posArr].setSalario(profesion);
-                
+                if ( aumento != 0 ) {
+
+                        profesion = profesion + (aumento * 150);
+                        Empleados[posArr].setSalario(profesion);
+                        
+                } else {
+                    Empleados[posArr].setSalario(profesion);
+                }
                  posArr++;
                  
                 JOptionPane.showMessageDialog(this, "Laboratorista guardado");
@@ -313,7 +320,14 @@ public class ControlPer extends javax.swing.JFrame {
                 Empleados[posArr].setNombre(txtNombre.getText());
                 Empleados[posArr].settipoEmpleado(cmbTipo.getSelectedItem().toString());
                 profesion = 100; 
-                Empleados[posArr].setSalario(profesion);
+                if ( aumento != 0 ) {
+
+                        profesion = profesion + (aumento * 100);
+                        Empleados[posArr].setSalario(profesion);
+                        
+                } else {
+                    Empleados[posArr].setSalario(profesion);
+                }
                 posArr++;
                 
                 JOptionPane.showMessageDialog(this, "Administrativo guardado");
