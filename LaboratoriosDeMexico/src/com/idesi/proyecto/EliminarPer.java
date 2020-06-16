@@ -55,6 +55,11 @@ public class EliminarPer extends javax.swing.JFrame {
         txtTipo = new javax.swing.JTextField();
         txtSalario = new javax.swing.JTextField();
         btnEliminar = new javax.swing.JButton();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        mnchRegresar = new javax.swing.JCheckBoxMenuItem();
+        mnchAyuda = new javax.swing.JCheckBoxMenuItem();
+        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,6 +94,33 @@ public class EliminarPer extends javax.swing.JFrame {
                 btnEliminarActionPerformed(evt);
             }
         });
+
+        jMenu1.setText("Archivo");
+
+        mnchRegresar.setSelected(true);
+        mnchRegresar.setText("Regresar");
+        mnchRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnchRegresarActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mnchRegresar);
+
+        mnchAyuda.setSelected(true);
+        mnchAyuda.setText("Ayuda");
+        mnchAyuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnchAyudaActionPerformed(evt);
+            }
+        });
+        jMenu1.add(mnchAyuda);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Editar");
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -190,6 +222,16 @@ public class EliminarPer extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    private void mnchRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnchRegresarActionPerformed
+        this.setVisible(false);
+        vtnControlPer.setVisible(true);
+        limpiar_cajas();
+    }//GEN-LAST:event_mnchRegresarActionPerformed
+
+    private void mnchAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnchAyudaActionPerformed
+       JOptionPane.showMessageDialog(this, "Se busca por codigo");
+    }//GEN-LAST:event_mnchAyudaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -228,6 +270,9 @@ public class EliminarPer extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblEdad;
     private javax.swing.JLabel lblIngresar;
@@ -235,6 +280,8 @@ public class EliminarPer extends javax.swing.JFrame {
     private javax.swing.JLabel lblRFC;
     private javax.swing.JLabel lblSalario;
     private javax.swing.JLabel lblTipo;
+    private javax.swing.JCheckBoxMenuItem mnchAyuda;
+    private javax.swing.JCheckBoxMenuItem mnchRegresar;
     private javax.swing.JTextField txtBuscado;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtEdad;
