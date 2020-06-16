@@ -253,6 +253,7 @@ public class BuscarControlPer extends javax.swing.JFrame {
                 txtEdad.setText(Empleados[posBusqueda].getEdad());
                 txtRFC.setText(Empleados[posBusqueda].getRFC());
                 txtCodigo.setText(Empleados[posBusqueda].getCodigo());
+                txtSalario.setText(String.valueOf(Empleados[posBusqueda].getSalario()));
                 modificar = posBusqueda;
                 posBusqueda = 5;
             } else {

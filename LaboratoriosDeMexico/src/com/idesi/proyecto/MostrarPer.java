@@ -33,6 +33,7 @@ public class MostrarPer extends javax.swing.JFrame {
          txtCodigo.setText(Empleados[actual].getCodigo());
          txtRFC.setText(Empleados[actual].getRFC());
          txtTipo.setText(Empleados[actual].gettipoEmpleado());
+         txtSalario.setText(String.valueOf(Empleados[actual].getSalario()));
          
     }
 
@@ -63,7 +64,6 @@ public class MostrarPer extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         mniRegresar = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -117,9 +117,6 @@ public class MostrarPer extends javax.swing.JFrame {
         jMenu1.add(mniRegresar);
 
         jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -267,7 +264,6 @@ public class MostrarPer extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem mniRegresar;
     private javax.swing.JTextField txtCodigo;

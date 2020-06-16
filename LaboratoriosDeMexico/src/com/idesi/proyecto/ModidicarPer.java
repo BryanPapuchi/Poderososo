@@ -260,20 +260,20 @@ public class ModidicarPer extends javax.swing.JFrame {
     }//GEN-LAST:event_mniAyudaActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-       /* if (!((txtNombre.getText()).equals("")) && !((txtNombre.getText()).equals("")) && !(txtNombre.getText()).equals("")) {
+        if (!((txtNombre.getText()).equals("")) && !((txtNombre.getText()).equals("")) && !(txtNombre.getText()).equals("")) {
 
             Empleados[busPer].setNombre(txtNombre.getText());
             Empleados[busPer].setEdad(txtEdad.getText());
             Empleados[busPer].setRFC(txtRFC.getText());
             Empleados[busPer].setCodigo(txtCodigo.getText());
-            Empleados[busPer].settipoEmpleado(txttipoEmpleado.getText());
-            Empleados[busPer].setSalario(txtSalario.getText());
+            Empleados[busPer].settipoEmpleado(txtTipo.getText());
+            Empleados[busPer].setSalario(Double.parseDouble(txtSalario.getText().trim()));
 
             JOptionPane.showMessageDialog(this, "Se a guardado");
             busPer = 5;
             
             
-        }*/
+        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
@@ -295,6 +295,7 @@ public class ModidicarPer extends javax.swing.JFrame {
                 txtEdad.setText(Empleados[busPer].getEdad());
                 txtRFC.setText(Empleados[busPer].getRFC());
                 txtCodigo.setText(Empleados[busPer].getCodigo());
+                txtSalario.setText(String.valueOf(Empleados[busPer].getSalario()));
                 modificar = busPer;
                 busPer = 5;
             } else {
