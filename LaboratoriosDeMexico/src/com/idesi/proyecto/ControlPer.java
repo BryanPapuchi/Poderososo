@@ -96,7 +96,6 @@ public class ControlPer extends javax.swing.JFrame {
         btnBuscar.setBackground(new java.awt.Color(102, 255, 204));
         btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnBuscar.setText("Buscar Empleado");
-        btnBuscar.setEnabled(false);
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBuscarActionPerformed(evt);
@@ -289,24 +288,32 @@ public class ControlPer extends javax.swing.JFrame {
     }//GEN-LAST:event_miRegresarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        
-        if (posArr > 0) {
+         
+      /*if (posArr > 0) {
         
         if (vtnBuscarControlPer == null) {
-            vtnBuscarControlPer = new BuscarControlPer(this, Empleados);
+            vtnBuscarControlPer = new RecursosMostrar(this, Empleados);
         }
 
-        vtnBuscarControlPer.posArr = posArr;
-        vtnBuscarControlPer.actual = 0;
-        vtnBuscarControlPer.Cargar_Datos(vtnBuscarControlPer.actual);
+        vtnRecMos.posArr = posArr;
+        vtnRecMos.actual = 0;
+        vtnRecMos.cargar_datos(vtnRecMos.actual);
 
-        vtnBuscarControlPer.setVisible(true);
+        vtnRecMos.setVisible(true);
         this.setVisible(false);
-        limpiar_cajas();
+        limpiar_cajas1();
 
     } else {
         JOptionPane.showMessageDialog(this, "No hay recursos registrados.");
-     }
+    }
+        
+         //if (vtnBuscarControlPer == null) {
+         vtnBuscarControlPer = new BuscarControlPer (this, Empleados);
+        }
+
+        vtnBuscarControlPer.setVisible(true);
+        this.setVisible(false);*/
+
         
     }//GEN-LAST:event_btnBuscarActionPerformed
 
