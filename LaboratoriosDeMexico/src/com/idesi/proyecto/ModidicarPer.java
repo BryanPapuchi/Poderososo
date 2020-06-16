@@ -11,6 +11,7 @@ public class ModidicarPer extends javax.swing.JFrame {
     int posArr;
     int actual = 0;
     int busPer;
+    int modificar = 0;
    
     public ModidicarPer() {
         initComponents();
@@ -183,13 +184,13 @@ public class ModidicarPer extends javax.swing.JFrame {
                             .addComponent(lblTipo)
                             .addComponent(lblSalario))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtCodigo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 159, Short.MAX_VALUE)
-                                .addComponent(txtTipo, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addComponent(txtEdad, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
-                            .addComponent(txtRFC)
-                            .addComponent(txtNombre)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtCodigo, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+                                .addComponent(txtTipo)
+                                .addComponent(txtEdad, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE))
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtRFC, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lblIngrese)
@@ -205,7 +206,7 @@ public class ModidicarPer extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(194, 194, 194)
                         .addComponent(btnBuscar)))
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -259,7 +260,7 @@ public class ModidicarPer extends javax.swing.JFrame {
     }//GEN-LAST:event_mniAyudaActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        /* if (!((txtNombre.getText()).equals("")) && !((txtNombre.getText()).equals("")) && !(txtNombre.getText()).equals("")) {
+       /* if (!((txtNombre.getText()).equals("")) && !((txtNombre.getText()).equals("")) && !(txtNombre.getText()).equals("")) {
 
             Empleados[busPer].setNombre(txtNombre.getText());
             Empleados[busPer].setEdad(txtEdad.getText());
@@ -276,7 +277,33 @@ public class ModidicarPer extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-          
+          if (!(txtBuscado.getText()).equals("")) {
+            String productoBuscada = txtBuscado.getText();
+            for (int i = 0; i < posArr; i++) {
+                
+                    if ((Empleados[i].getCodigo()).equalsIgnoreCase(productoBuscada)) {
+                        busPer = i;
+                        break;
+                    }
+                }
+            
+            txtBuscado.setText("");
+
+            if (busPer < 5) {
+                txtNombre.setText(Empleados[busPer].getNombre());
+                txtTipo.setText(Empleados[busPer].gettipoEmpleado());
+                txtEdad.setText(Empleados[busPer].getEdad());
+                txtRFC.setText(Empleados[busPer].getRFC());
+                txtCodigo.setText(Empleados[busPer].getCodigo());
+                modificar = busPer;
+                busPer = 5;
+            } else {
+                JOptionPane.showMessageDialog(this, "Nombre no encontrado");
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Casilla en blanco");
+        } 
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void mnchHabilitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnchHabilitarActionPerformed

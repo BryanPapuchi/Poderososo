@@ -11,7 +11,8 @@ public class EliminarPer extends javax.swing.JFrame {
     int posArr;
     int busqueda;
     int actual = 0;
-     int bDatos;
+    int bDatos;
+    int modificar = 0;
      
     public EliminarPer() {
         initComponents();
@@ -56,13 +57,13 @@ public class EliminarPer extends javax.swing.JFrame {
         txtTipo = new javax.swing.JTextField();
         txtSalario = new javax.swing.JTextField();
         btnEliminar = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        mnchRegresar = new javax.swing.JCheckBoxMenuItem();
-        mnchAyuda = new javax.swing.JCheckBoxMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        mnchHabilitar = new javax.swing.JCheckBoxMenuItem();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        mniRegresar = new javax.swing.JMenuItem();
+        mniAyuda = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
         mniLimpiar = new javax.swing.JMenuItem();
+        mnchHabilitar = new javax.swing.JCheckBoxMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -105,38 +106,27 @@ public class EliminarPer extends javax.swing.JFrame {
             }
         });
 
-        jMenu1.setText("Archivo");
+        jMenu3.setText("Archivo");
 
-        mnchRegresar.setSelected(true);
-        mnchRegresar.setText("Regresar");
-        mnchRegresar.addActionListener(new java.awt.event.ActionListener() {
+        mniRegresar.setText("Regresar a Control Personal");
+        mniRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnchRegresarActionPerformed(evt);
+                mniRegresarActionPerformed(evt);
             }
         });
-        jMenu1.add(mnchRegresar);
+        jMenu3.add(mniRegresar);
 
-        mnchAyuda.setSelected(true);
-        mnchAyuda.setText("Ayuda");
-        mnchAyuda.addActionListener(new java.awt.event.ActionListener() {
+        mniAyuda.setText("Ayuda");
+        mniAyuda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnchAyudaActionPerformed(evt);
+                mniAyudaActionPerformed(evt);
             }
         });
-        jMenu1.add(mnchAyuda);
+        jMenu3.add(mniAyuda);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar2.add(jMenu3);
 
-        jMenu2.setText("Editar");
-
-        mnchHabilitar.setSelected(true);
-        mnchHabilitar.setText("Habilitar cajas");
-        mnchHabilitar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnchHabilitarActionPerformed(evt);
-            }
-        });
-        jMenu2.add(mnchHabilitar);
+        jMenu4.setText("Edicion");
 
         mniLimpiar.setText("Limpiar Cajas");
         mniLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -144,11 +134,20 @@ public class EliminarPer extends javax.swing.JFrame {
                 mniLimpiarActionPerformed(evt);
             }
         });
-        jMenu2.add(mniLimpiar);
+        jMenu4.add(mniLimpiar);
 
-        jMenuBar1.add(jMenu2);
+        mnchHabilitar.setSelected(true);
+        mnchHabilitar.setText("Habilitar Cajas");
+        mnchHabilitar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnchHabilitarActionPerformed(evt);
+            }
+        });
+        jMenu4.add(mnchHabilitar);
 
-        setJMenuBar(jMenuBar1);
+        jMenuBar2.add(jMenu4);
+
+        setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -160,30 +159,33 @@ public class EliminarPer extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(62, 62, 62)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(lblNombre)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtNombre))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblSalario)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(6, 6, 6)
-                                        .addComponent(lblCodigo))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(17, 17, 17)
-                                        .addComponent(lblEdad)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtEdad))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(22, 22, 22)
-                                        .addComponent(lblRFC)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtRFC, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(18, 18, 18)
-                                .addComponent(btnEliminar))
+                                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(22, 22, 22)
+                                            .addComponent(lblRFC)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(txtRFC, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(lblSalario)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                    .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addGap(6, 6, 6)
+                                                    .addComponent(lblCodigo))
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addGap(17, 17, 17)
+                                                    .addComponent(lblEdad)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                    .addComponent(txtEdad)))
+                                            .addGap(18, 18, 18)
+                                            .addComponent(btnEliminar)))))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(layout.createSequentialGroup()
                                     .addContainerGap()
@@ -256,21 +258,45 @@ public class EliminarPer extends javax.swing.JFrame {
             }
         } --posArr;
         vtnControlPer.posArr = this.posArr;
-        JOptionPane.showMessageDialog(this, "se ha eliminado");
+        JOptionPane.showMessageDialog(this, "se ha eliminado");   
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void mnchRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnchRegresarActionPerformed
-        this.setVisible(false);
-        vtnControlPer.setVisible(true);
-        limpiar_cajas();
-    }//GEN-LAST:event_mnchRegresarActionPerformed
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        if (!(txtBuscado.getText()).equals("")) {
+            String productoBuscada = txtBuscado.getText();
+            for (int i = 0; i < posArr; i++) {
+                
+                    if ((Empleados[i].getCodigo()).equalsIgnoreCase(productoBuscada)) {
+                        bDatos = i;
+                        break;
+                    }
+                }
+            
+            txtBuscado.setText("");
 
-    private void mnchAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnchAyudaActionPerformed
-       JOptionPane.showMessageDialog(this, "Para buscar un empleado se busca por codigo");
-    }//GEN-LAST:event_mnchAyudaActionPerformed
+            if (bDatos < 5) {
+                txtNombre.setText(Empleados[bDatos].getNombre());
+                txtTipo.setText(Empleados[bDatos].gettipoEmpleado());
+                txtEdad.setText(Empleados[bDatos].getEdad());
+                txtRFC.setText(Empleados[bDatos].getRFC());
+                txtCodigo.setText(Empleados[bDatos].getCodigo());
+                modificar = bDatos;
+                bDatos= 5;
+            } else {
+                JOptionPane.showMessageDialog(this, "Nombre no encontrado");
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Casilla en blanco");
+        } 
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void mniLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniLimpiarActionPerformed
+        limpiar_cajas();
+    }//GEN-LAST:event_mniLimpiarActionPerformed
 
     private void mnchHabilitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnchHabilitarActionPerformed
-        if(mnchHabilitar.isSelected()){
+          if(mnchHabilitar.isSelected()){
             txtBuscado.setEnabled(true);
             txtNombre.setEnabled(true);
             txtEdad.setEnabled(true);
@@ -289,31 +315,14 @@ public class EliminarPer extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_mnchHabilitarActionPerformed
 
-    private void mniLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniLimpiarActionPerformed
-        limpiar_cajas();
-    }//GEN-LAST:event_mniLimpiarActionPerformed
+    private void mniRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniRegresarActionPerformed
+        this.setVisible(false);
+        vtnControlPer.setVisible(true);
+    }//GEN-LAST:event_mniRegresarActionPerformed
 
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-       /* if (!(txtBuscado.getText()).equals("")) {
-            String pEncontrada = txtBuscado.getText();
-            for (int i = 0; i < posArr; i++) {
-                if ((Empleados[i].getNombre()).equalsIgnoreCase(pEncontrada)) {
-                bDatos = i;
-                break;
-                }
-            } limpiar_cajas();
-
-            if ( bDatos < 5) {
-                txtNombre.setText(Empleados[bDatos].getNombre());
-                txtApellido1.setText(personas[bDatos].getApellidoPat());
-                txtApellido2.setText(personas[bDatos].getApellidoMat());
-                btnEliminar.setEnabled(true);
-                mniEliminar.setEnabled(true);
-            } else {
-                JOptionPane.showMessageDialog(this, "El nombre no se a encontrado");
-            }
-        } */
-    }//GEN-LAST:event_btnBuscarActionPerformed
+    private void mniAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAyudaActionPerformed
+        JOptionPane.showMessageDialog(this, "La busqueda del Empleado es por su código");
+    }//GEN-LAST:event_mniAyudaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -353,9 +362,9 @@ public class EliminarPer extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblEdad;
     private javax.swing.JLabel lblIngresar;
@@ -363,10 +372,10 @@ public class EliminarPer extends javax.swing.JFrame {
     private javax.swing.JLabel lblRFC;
     private javax.swing.JLabel lblSalario;
     private javax.swing.JLabel lblTipo;
-    private javax.swing.JCheckBoxMenuItem mnchAyuda;
     private javax.swing.JCheckBoxMenuItem mnchHabilitar;
-    private javax.swing.JCheckBoxMenuItem mnchRegresar;
+    private javax.swing.JMenuItem mniAyuda;
     private javax.swing.JMenuItem mniLimpiar;
+    private javax.swing.JMenuItem mniRegresar;
     private javax.swing.JTextField txtBuscado;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtEdad;
