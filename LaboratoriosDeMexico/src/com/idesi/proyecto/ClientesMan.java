@@ -344,6 +344,7 @@ public class ClientesMan extends javax.swing.JFrame {
                     clientes[posArr].setDomicilio(txtDom.getText().trim());
                     clientes[posArr].setCodigo(txtCodigo.getText().trim());
                     posArr++;
+                    JOptionPane.showMessageDialog(this, "Cliente Guardado."); 
                 } else {                  
                         JOptionPane.showMessageDialog(this, "Formato de edad invalido.");                }
             
@@ -484,7 +485,8 @@ public class ClientesMan extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void mniEstabActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniEstabActionPerformed
-         
+ 
+    if (posArr != 0) {         
         if (vtnRegCit == null) {
             vtnRegCit = new RegistrarCitas(this, citas);
         }
@@ -492,7 +494,9 @@ public class ClientesMan extends javax.swing.JFrame {
         vtnRegCit.setVisible(true);
         this.setVisible(false);
         limpiar_cajas1();
-    
+        } else {
+            JOptionPane.showMessageDialog(this, "No hay cliente existente para darle cita");
+        }
     }//GEN-LAST:event_mniEstabActionPerformed
 
     private void mniregresarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniregresarMenuActionPerformed

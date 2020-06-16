@@ -3,8 +3,8 @@ package com.idesi.proyecto;
 
 public class RecursosMostrar extends javax.swing.JFrame {
 
-    RecursosMateriales recursos[] = new RecursosMateriales[5];
-    vtnRecursos vtnRec;
+    Producto recursos[] = new Producto[5];
+    Recursos vtnRec;
     int posArr;
     int actual = 0;
     
@@ -12,7 +12,7 @@ public class RecursosMostrar extends javax.swing.JFrame {
         initComponents();
     }
 
-    public RecursosMostrar(vtnRecursos vtnRec, RecursosMateriales[] recursos) {
+    public RecursosMostrar(Recursos vtnRec, Producto[] recursos) {
         this.recursos = recursos;
         this.vtnRec = vtnRec;
         initComponents();

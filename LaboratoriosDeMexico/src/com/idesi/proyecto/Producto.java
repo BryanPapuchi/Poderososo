@@ -2,13 +2,13 @@
 package com.idesi.proyecto;
 
 
-public class RecursosMateriales {
+public class Producto {
     
     public String codigo, tipoProducto, nombreProducto;
     public double existencia = 0;
     public double precio;
     
-    public RecursosMateriales(String codigo, String tipoProducto, String nombreProducto, double existencia, double precio) {
+    public Producto(String codigo, String tipoProducto, String nombreProducto, double existencia, double precio) {
         this.codigo = codigo;
         this.tipoProducto = tipoProducto;
         this.nombreProducto = nombreProducto;
@@ -16,7 +16,7 @@ public class RecursosMateriales {
         this.precio = precio;   
     }
     
-    public RecursosMateriales() {
+    public Producto() {
         this.codigo = "";
         this.tipoProducto = "";
         this.nombreProducto = "";    

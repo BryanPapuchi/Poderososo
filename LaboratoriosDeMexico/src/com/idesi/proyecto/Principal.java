@@ -6,11 +6,11 @@ import javax.swing.JOptionPane;
 
 public class Principal extends javax.swing.JFrame {
     
-    vtnRecursos vtnRecursos = null;
+    Recursos vtnRecursos = null;
     ClientesMan vtnClientes = null;
     ControlPer vtnControlPer = null;
     
-    RecursosMateriales recursos = new RecursosMateriales();
+    Producto recursos = new Producto();
     Clientes clientes = new Clientes();
     Empleado Empleados = new Empleado();
     
@@ -179,7 +179,7 @@ public class Principal extends javax.swing.JFrame {
     private void btnRecursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRecursosActionPerformed
         
        if (vtnRecursos == null) {
-            vtnRecursos = new vtnRecursos(this, recursos);
+            vtnRecursos = new Recursos(this, recursos);
         }
 
         vtnRecursos.setVisible(true);

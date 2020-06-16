@@ -4,10 +4,10 @@ package com.idesi.proyecto;
 import javax.swing.JOptionPane;
 
 
-public class vtnRecursos extends javax.swing.JFrame {
+public class Recursos extends javax.swing.JFrame {
 
-   RecursosMateriales recursos[] = new RecursosMateriales[5];
-   RecursosMateriales recursos1 = new RecursosMateriales();
+   Producto recursos[] = new Producto[5];
+   Producto recursos1 = new Producto();
    
    int posArr = 0;
    int posBusqueda = 5;
@@ -18,11 +18,11 @@ public class vtnRecursos extends javax.swing.JFrame {
    Principal vtnPrincipal;
   
     
-    public vtnRecursos() {
+    public Recursos() {
         initComponents();
     }
     
-    public vtnRecursos( Principal vtnPrincipal , RecursosMateriales recursos1) {
+    public Recursos( Principal vtnPrincipal , Producto recursos1) {
         this.recursos1 = recursos1;
         this.vtnPrincipal = vtnPrincipal;
         initComponents();
@@ -358,13 +358,14 @@ public class vtnRecursos extends javax.swing.JFrame {
                  
                 if (txtPrecio.getText().matches("[0-9]+") && txtExist.getText().matches("[0-9]+")) {
                   
-                recursos[posArr] = new RecursosMateriales();
+                recursos[posArr] = new Producto();
                 recursos[posArr].setCodigo(txtCodigo.getText().trim());
                 recursos[posArr].setTipoProducto(cmbTipo.getSelectedItem().toString());
                 recursos[posArr].setNombreProducto(txtNombre.getText().trim());
                 recursos[posArr].setExistencia(Double.parseDouble(txtExist.getText().trim()));
                 recursos[posArr].setPrecio(Double.parseDouble(txtPrecio.getText().trim()));
                 posArr++;
+                JOptionPane.showMessageDialog(this, "Gaurdado con exito");
                 
                 } else {
                     JOptionPane.showMessageDialog(this, "Formato de Edad / Existencia invalido.");
@@ -523,20 +524,21 @@ public class vtnRecursos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(vtnRecursos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Recursos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(vtnRecursos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Recursos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(vtnRecursos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Recursos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(vtnRecursos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Recursos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new vtnRecursos().setVisible(true);
+                new Recursos().setVisible(true);
             }
         });
     }
