@@ -34,23 +34,14 @@ public class BuscarControlPer extends javax.swing.JFrame {
         txtSalario.setText("");
     }
     
-    public void Cargar_Datos(int actual){
-        txtNombre.setText(Empleados[actual].getNombre());
-        txtRFC.setText(Empleados[actual].getRFC());
-        txtEdad.setText(Empleados[actual].getEdad());
-        txtCodigo.setText(Empleados[actual].getCodigo());
-        txtTipo.setText(Empleados[actual].gettipoEmpleado());
-    }
-
-    /*public Buscar(ControlPer vtnControlPer , ControlPersonal persona[]){
-        this.vtnControlPer = vtnControlPer;
-        this.persona = persona;
-        initComponents();
-    }*/
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
         lblIngresar = new javax.swing.JLabel();
         txtBuscado = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
@@ -66,16 +57,29 @@ public class BuscarControlPer extends javax.swing.JFrame {
         txtCodigo = new javax.swing.JTextField();
         txtTipo = new javax.swing.JTextField();
         txtSalario = new javax.swing.JTextField();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        mniRegresar1 = new javax.swing.JMenuItem();
+        jMenuBar3 = new javax.swing.JMenuBar();
+        jMenu4 = new javax.swing.JMenu();
+        mniRegresar = new javax.swing.JMenuItem();
         mniAyuda = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        mniLimpiar = new javax.swing.JMenuItem();
+        mnchHabilitar = new javax.swing.JCheckBoxMenuItem();
+
+        jMenuItem1.setText("jMenuItem1");
+
+        jMenu2.setText("File");
+        jMenuBar2.add(jMenu2);
+
+        jMenu3.setText("Edit");
+        jMenuBar2.add(jMenu3);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblIngresar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblIngresar.setText("Ingrese el Codigo:");
 
+        btnBuscar.setBackground(new java.awt.Color(0, 0, 204));
+        btnBuscar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -101,15 +105,15 @@ public class BuscarControlPer extends javax.swing.JFrame {
         lblSalario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblSalario.setText("Salario:");
 
-        jMenu1.setText("Archivo");
+        jMenu4.setText("Archivo");
 
-        mniRegresar1.setText("Regresar a Control Personal");
-        mniRegresar1.addActionListener(new java.awt.event.ActionListener() {
+        mniRegresar.setText("Regresar a Control Personal");
+        mniRegresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mniRegresar1ActionPerformed(evt);
+                mniRegresarActionPerformed(evt);
             }
         });
-        jMenu1.add(mniRegresar1);
+        jMenu4.add(mniRegresar);
 
         mniAyuda.setText("Ayuda");
         mniAyuda.addActionListener(new java.awt.event.ActionListener() {
@@ -117,54 +121,79 @@ public class BuscarControlPer extends javax.swing.JFrame {
                 mniAyudaActionPerformed(evt);
             }
         });
-        jMenu1.add(mniAyuda);
+        jMenu4.add(mniAyuda);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar3.add(jMenu4);
 
-        setJMenuBar(jMenuBar1);
+        jMenu5.setText("Edicion");
+
+        mniLimpiar.setText("Limpiar Cajas");
+        mniLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniLimpiarActionPerformed(evt);
+            }
+        });
+        jMenu5.add(mniLimpiar);
+
+        mnchHabilitar.setSelected(true);
+        mnchHabilitar.setText("Habilitar Cajas");
+        mnchHabilitar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnchHabilitarActionPerformed(evt);
+            }
+        });
+        jMenu5.add(mnchHabilitar);
+
+        jMenuBar3.add(jMenu5);
+
+        setJMenuBar(jMenuBar3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(lblIngresar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBuscar)
-                            .addComponent(txtBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblNombre)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblTipo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblSalario)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(lblNombre)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(txtNombre))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblRFC)
+                                        .addComponent(lblEdad))
+                                    .addGap(23, 23, 23)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtEdad, javax.swing.GroupLayout.DEFAULT_SIZE, 214, Short.MAX_VALUE)
+                                        .addComponent(txtRFC))
+                                    .addGap(0, 94, Short.MAX_VALUE)))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(lblTipo)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(txtTipo))
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(lblCodigo)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(txtCodigo))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lblEdad)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(txtEdad))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(lblRFC)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(txtRFC, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(93, Short.MAX_VALUE))
+                                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,9 +202,9 @@ public class BuscarControlPer extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblIngresar)
                     .addComponent(txtBuscado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnBuscar)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblNombre)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -219,7 +248,7 @@ public class BuscarControlPer extends javax.swing.JFrame {
             txtBuscado.setText("");
 
             if (posBusqueda < 5) {
-                txtNombre.setText(Empleados[posBusqueda].getCodigo());
+                txtNombre.setText(Empleados[posBusqueda].getNombre());
                 txtTipo.setText(Empleados[posBusqueda].gettipoEmpleado());
                 txtEdad.setText(Empleados[posBusqueda].getEdad());
                 txtRFC.setText(Empleados[posBusqueda].getRFC());
@@ -235,17 +264,39 @@ public class BuscarControlPer extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
-    private void mniAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAyudaActionPerformed
-        
-        JOptionPane.showMessageDialog(this, "La busqueda del empleado es por codigo");
-    }//GEN-LAST:event_mniAyudaActionPerformed
-
-    private void mniRegresar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniRegresar1ActionPerformed
-       
+    private void mniRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniRegresarActionPerformed
         this.setVisible(false);
         vtnControlPer.setVisible(true);
         limpiar_cajas();
-    }//GEN-LAST:event_mniRegresar1ActionPerformed
+    }//GEN-LAST:event_mniRegresarActionPerformed
+
+    private void mniAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAyudaActionPerformed
+        JOptionPane.showMessageDialog(this, "La busqueda del empleado es por codigo");
+    }//GEN-LAST:event_mniAyudaActionPerformed
+
+    private void mnchHabilitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnchHabilitarActionPerformed
+        if(mnchHabilitar.isSelected()){
+            txtBuscado.setEnabled(true);
+            txtNombre.setEnabled(true);
+            txtEdad.setEnabled(true);
+            txtRFC.setEnabled(true);
+            txtCodigo.setEnabled(true);
+            txtTipo.setEnabled(true);
+            txtSalario.setEnabled(true);
+        }else{
+            txtBuscado.setEnabled(false);
+            txtNombre.setEnabled(false);
+            txtEdad.setEnabled(false);
+            txtRFC.setEnabled(false);
+            txtCodigo.setEnabled(false);
+            txtTipo.setEnabled(false);
+            txtSalario.setEnabled(false);
+        }
+    }//GEN-LAST:event_mnchHabilitarActionPerformed
+
+    private void mniLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniLimpiarActionPerformed
+        limpiar_cajas();
+    }//GEN-LAST:event_mniLimpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -285,8 +336,13 @@ public class BuscarControlPer extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuBar jMenuBar3;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JLabel lblCodigo;
     private javax.swing.JLabel lblEdad;
     private javax.swing.JLabel lblIngresar;
@@ -294,8 +350,10 @@ public class BuscarControlPer extends javax.swing.JFrame {
     private javax.swing.JLabel lblRFC;
     private javax.swing.JLabel lblSalario;
     private javax.swing.JLabel lblTipo;
+    private javax.swing.JCheckBoxMenuItem mnchHabilitar;
     private javax.swing.JMenuItem mniAyuda;
-    private javax.swing.JMenuItem mniRegresar1;
+    private javax.swing.JMenuItem mniLimpiar;
+    private javax.swing.JMenuItem mniRegresar;
     private javax.swing.JTextField txtBuscado;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JTextField txtEdad;

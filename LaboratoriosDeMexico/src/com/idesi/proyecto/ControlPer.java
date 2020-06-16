@@ -11,6 +11,9 @@ public class ControlPer extends javax.swing.JFrame {
     int posArr = 0;
     Principal vtnPrincipal;
     BuscarControlPer vtnBuscarControlPer;
+    ModidicarPer vtnModidicarPer;
+    EliminarPer vtnEliminarPer;
+    MostrarPer vtnMostrarPer;
     boolean salario = false;
     
     public ControlPer() {
@@ -57,6 +60,9 @@ public class ControlPer extends javax.swing.JFrame {
         btnBuscar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         txtAlmacen = new javax.swing.JTextField();
+        btnModificar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        btnMostrar = new javax.swing.JButton();
         menuControl = new javax.swing.JMenuBar();
         jmArchivo = new javax.swing.JMenu();
         miRegresar = new javax.swing.JMenuItem();
@@ -106,6 +112,33 @@ public class ControlPer extends javax.swing.JFrame {
 
         txtAlmacen.setText("0");
 
+        btnModificar.setBackground(new java.awt.Color(102, 255, 204));
+        btnModificar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnModificar.setText("Modificar Empleado ");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
+
+        btnEliminar.setBackground(new java.awt.Color(102, 255, 204));
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnEliminar.setText("Eliminar Empleado");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
+        btnMostrar.setBackground(new java.awt.Color(102, 255, 204));
+        btnMostrar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnMostrar.setText("Mostrar Empleado");
+        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarActionPerformed(evt);
+            }
+        });
+
         jmArchivo.setText("Archivo");
 
         miRegresar.setText("Regresar");
@@ -127,30 +160,21 @@ public class ControlPer extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnGuardar)
-                .addGap(229, 229, 229))
             .addGroup(layout.createSequentialGroup()
+                .addGap(67, 67, 67)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(lblCodigoP)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblNombre)
+                                .addComponent(lblEdad, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(lblRFC, javax.swing.GroupLayout.Alignment.TRAILING)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(81, 81, 81)
-                                .addComponent(jLabel1)
-                                .addGap(59, 59, 59))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(lblCodigoP)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblNombre)
-                                        .addComponent(lblEdad, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(lblRFC, javax.swing.GroupLayout.Alignment.TRAILING)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtNombre)
                                     .addComponent(txtEdad)
                                     .addComponent(txtRFC)
                                     .addComponent(txtCodigo)
@@ -158,15 +182,35 @@ public class ControlPer extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(61, 61, 61)
-                                        .addComponent(txtAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(txtAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jLabel3)
-                                        .addGap(31, 31, 31))))))
+                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(btnBuscar)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(81, 81, 81)
+                        .addComponent(jLabel1)
+                        .addContainerGap())))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(265, 265, 265)
+                        .addComponent(btnGuardar)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnMostrar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBuscar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnModificar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                        .addComponent(btnEliminar)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,15 +240,19 @@ public class ControlPer extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(cmbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnBuscar))
+                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(147, 147, 147)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtAlmacen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnMostrar)
+                    .addComponent(btnBuscar)
+                    .addComponent(btnModificar)
+                    .addComponent(btnEliminar))
+                .addContainerGap())
         );
 
         pack();
@@ -288,34 +336,59 @@ public class ControlPer extends javax.swing.JFrame {
     }//GEN-LAST:event_miRegresarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-         
-      /*if (posArr > 0) {
-        
-        if (vtnBuscarControlPer == null) {
-            vtnBuscarControlPer = new RecursosMostrar(this, Empleados);
+      if(vtnBuscarControlPer== null){
+            vtnBuscarControlPer = new BuscarControlPer(this, Empleados);
         }
-
-        vtnRecMos.posArr = posArr;
-        vtnRecMos.actual = 0;
-        vtnRecMos.cargar_datos(vtnRecMos.actual);
-
-        vtnRecMos.setVisible(true);
-        this.setVisible(false);
-        limpiar_cajas1();
-
-    } else {
-        JOptionPane.showMessageDialog(this, "No hay recursos registrados.");
-    }
         
-         //if (vtnBuscarControlPer == null) {
-         vtnBuscarControlPer = new BuscarControlPer (this, Empleados);
-        }
-
+        vtnBuscarControlPer.posArr = posArr;
+        vtnBuscarControlPer.actual = 0;
+        
         vtnBuscarControlPer.setVisible(true);
-        this.setVisible(false);*/
-
-        
+        this.setVisible(false);
+        limpiar_cajas();   
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        if(vtnModidicarPer== null){
+            vtnModidicarPer = new ModidicarPer(this, Empleados);
+        }
+        
+        vtnModidicarPer.posArr = posArr;
+        vtnModidicarPer.actual = 0;
+        
+        
+        vtnModidicarPer.setVisible(true);
+        this.setVisible(false);
+        limpiar_cajas(); 
+    }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        if(vtnEliminarPer== null){
+            vtnEliminarPer = new EliminarPer (this, Empleados);
+        }
+        
+        vtnEliminarPer.posArr = posArr;
+        vtnEliminarPer.actual = 0;
+        
+        
+        vtnEliminarPer.setVisible(true);
+        this.setVisible(false);
+        limpiar_cajas(); 
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
+        if(vtnMostrarPer== null){
+            vtnMostrarPer = new MostrarPer(this, Empleados);
+        }
+        
+        vtnMostrarPer.posArr = posArr;
+        vtnMostrarPer.actual = 0;
+        vtnMostrarPer.cargar_datos(vtnMostrarPer.actual);
+        
+        vtnMostrarPer.setVisible(true);
+        this.setVisible(false);
+        limpiar_cajas();
+    }//GEN-LAST:event_btnMostrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -354,7 +427,10 @@ public class ControlPer extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnModificar;
+    private javax.swing.JButton btnMostrar;
     private javax.swing.JComboBox<String> cmbTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
