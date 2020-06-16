@@ -15,6 +15,7 @@ public class MostrarPer extends javax.swing.JFrame {
     public MostrarPer(ControlPer vtnControlPer, Empleado[] Empleados){
         this.vtnControlPer = vtnControlPer;
         this.Empleados = Empleados;
+        initComponents();
     }
     
     public void limpiar_cajas(){
@@ -57,8 +58,8 @@ public class MostrarPer extends javax.swing.JFrame {
         txtCodigo = new javax.swing.JTextField();
         txtTipo = new javax.swing.JTextField();
         txtSalario = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnAnterior = new javax.swing.JButton();
+        btnSiguiente = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         mniRegresar = new javax.swing.JMenuItem();
@@ -87,21 +88,21 @@ public class MostrarPer extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("Salario:");
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 204));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton1.setText("Anterior");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAnterior.setBackground(new java.awt.Color(0, 0, 204));
+        btnAnterior.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnAnterior.setText("Anterior");
+        btnAnterior.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAnteriorActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(0, 0, 204));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton2.setText("Siguiente");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnSiguiente.setBackground(new java.awt.Color(0, 0, 204));
+        btnSiguiente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnSiguiente.setText("Siguiente");
+        btnSiguiente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnSiguienteActionPerformed(evt);
             }
         });
 
@@ -152,11 +153,11 @@ public class MostrarPer extends javax.swing.JFrame {
                                         .addComponent(txtCodigo, javax.swing.GroupLayout.Alignment.LEADING))
                                     .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton2)
+                                .addComponent(btnSiguiente)
                                 .addGap(26, 26, 26))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(67, 67, 67)
-                                .addComponent(jButton1)))))
+                                .addComponent(btnAnterior)))))
                 .addContainerGap(79, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -190,8 +191,8 @@ public class MostrarPer extends javax.swing.JFrame {
                     .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btnAnterior)
+                    .addComponent(btnSiguiente))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
@@ -204,21 +205,21 @@ public class MostrarPer extends javax.swing.JFrame {
         limpiar_cajas();
     }//GEN-LAST:event_mniRegresarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
         if(--actual < 0 ){
                 actual = posArr-1;
         }
         
         cargar_datos(actual);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAnteriorActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
          if(++actual > posArr-1){
              actual = 0;
         }
         
         cargar_datos(actual);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnSiguienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -256,8 +257,8 @@ public class MostrarPer extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnAnterior;
+    private javax.swing.JButton btnSiguiente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

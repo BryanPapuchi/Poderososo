@@ -9,11 +9,12 @@ public class ControlPer extends javax.swing.JFrame {
     Empleado Empleados[] = new Empleado[5];
     Empleado Empleados1 = new Empleado();
     int posArr = 0;
-    Principal vtnPrincipal;
-    BuscarControlPer vtnBuscarControlPer;
-    ModidicarPer vtnModidicarPer;
-    EliminarPer vtnEliminarPer;
-    MostrarPer vtnMostrarPer;
+    int acual = 0;
+    Principal vtnPrincipal = null;
+    BuscarControlPer vtnBuscarControlPer = null;
+    ModidicarPer vtnModidicarPer = null;
+    EliminarPer vtnEliminarPer = null;
+    MostrarPer vtnMostrarPer = null;
     boolean salario = false;
     
     public ControlPer() {
@@ -377,6 +378,7 @@ public class ControlPer extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
+        if(posArr>0){
         if(vtnMostrarPer== null){
             vtnMostrarPer = new MostrarPer(this, Empleados);
         }
@@ -388,6 +390,11 @@ public class ControlPer extends javax.swing.JFrame {
         vtnMostrarPer.setVisible(true);
         this.setVisible(false);
         limpiar_cajas();
+        }else{
+            JOptionPane.showMessageDialog(this, "No hay recursos registrados.");
+        }
+       
+        
     }//GEN-LAST:event_btnMostrarActionPerformed
 
     /**
