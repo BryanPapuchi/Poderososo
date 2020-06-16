@@ -8,14 +8,18 @@ public class ControlPer extends javax.swing.JFrame {
     
     Empleado Empleados[] = new Empleado[5];
     Empleado Empleados1 = new Empleado();
+    
     int posArr = 0;
     int acual = 0;
+    int profesion = 0;
+    
     Principal vtnPrincipal = null;
     BuscarControlPer vtnBuscarControlPer = null;
     ModidicarPer vtnModidicarPer = null;
     EliminarPer vtnEliminarPer = null;
     MostrarPer vtnMostrarPer = null;
-    boolean salario = false;
+    
+    
     
     public ControlPer() {
         initComponents();
@@ -260,7 +264,8 @@ public class ControlPer extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-            /*if (posArr < persona.length) {
+            
+        if (posArr < Empleados.length) {
             
             if ((!(txtCodigo.getText()).equals(""))
                 && !((txtNombre.getText()).equals(""))
@@ -268,39 +273,38 @@ public class ControlPer extends javax.swing.JFrame {
                 && !((txtRFC.getText()).equals(""))
                 && !((txtCodigo.getText()).equals(""))){
                 
-              if(cmbTipo.getSelectedItem().toString() == "Laboratoristas"){
-                persona[posArr] = new ControlPersonal();
-                persona[posArr].setCodigo(txtCodigo.getText());
-                persona[posArr].setRFC(txtRFC.getText());
-                persona[posArr].setEdad(txtEdad.getText());
-                persona[posArr].setNombre(txtNombre.getText());
-                persona[posArr].settipoEmpleado(cmbTipo.getSelectedItem().toString());
-                salario = true;
+              if(cmbTipo.getSelectedItem().toString() == "Laboratoristas") {
+              
+                Empleados[posArr] = new Empleado();
+                Empleados[posArr].setCodigo(txtCodigo.getText());
+                Empleados[posArr].setRFC(txtRFC.getText());
+                Empleados[posArr].setEdad(txtEdad.getText());
+                Empleados[posArr].setNombre(txtNombre.getText());
+                Empleados[posArr].settipoEmpleado(cmbTipo.getSelectedItem().toString());
+                profesion = 150;
+                Empleados[posArr].setSalario(profesion);
                 
                  posArr++;
                  
-                 JOptionPane.showMessageDialog(this, "Lavoratorista guardado");
-              }else{
+                JOptionPane.showMessageDialog(this, "Laboratorista guardado");
+                
+              } else {
                
-                persona[posArr] = new ControlPersonal();
-                persona[posArr].setCodigo(txtCodigo.getText());
-                persona[posArr].setRFC(txtRFC.getText());
-                persona[posArr].setEdad(txtEdad.getText());
-                persona[posArr].setNombre(txtNombre.getText());
-                persona[posArr].settipoEmpleado(cmbTipo.getSelectedItem().toString());
-                 
+                Empleados[posArr] = new Empleado();
+                Empleados[posArr].setCodigo(txtCodigo.getText());
+                Empleados[posArr].setRFC(txtRFC.getText());
+                Empleados[posArr].setEdad(txtEdad.getText());
+                Empleados[posArr].setNombre(txtNombre.getText());
+                Empleados[posArr].settipoEmpleado(cmbTipo.getSelectedItem().toString());
+                profesion = 100; 
+                Empleados[posArr].setSalario(profesion);
                 posArr++;
                 
                 JOptionPane.showMessageDialog(this, "Administrativo guardado");
+                
+              }
+              
             
-              }
-              
-              if(salario == true){
-                 persona[posArr].Salario = 150;
-              }else{
-                  persona[posArr].Salario = 100;
-              }
-              
             } else {
                 JOptionPane.showMessageDialog(this, "No se puede guardar, espacios sin llenar.");
             }
@@ -308,8 +312,18 @@ public class ControlPer extends javax.swing.JFrame {
         } else {
             
              JOptionPane.showMessageDialog(this, "El almacenamiento esta completo.");
-        }*/
-            if(posArr < Empleados.length){
+        }
+           
+            
+        
+        
+        
+        
+        
+        
+        
+    /*    
+        if(posArr < Empleados.length){
             Empleados[posArr] = new Empleado();
             Empleados[posArr].setNombre(txtNombre.getText());
             Empleados[posArr].setEdad(txtEdad.getText());
@@ -325,8 +339,8 @@ public class ControlPer extends javax.swing.JFrame {
             }
         }else{
             JOptionPane.showMessageDialog(this, "El almacenamiento esta completo");
-        }  
-        limpiar_cajas();
+        }  */
+        limpiar_cajas(); 
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void miRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miRegresarActionPerformed

@@ -33,6 +33,7 @@ public class MostrarPer extends javax.swing.JFrame {
          txtCodigo.setText(Empleados[actual].getCodigo());
          txtRFC.setText(Empleados[actual].getRFC());
          txtTipo.setText(Empleados[actual].gettipoEmpleado());
+         txtSalario.setText(String.valueOf(Empleados[actual].getSalario()));
          
     }
 

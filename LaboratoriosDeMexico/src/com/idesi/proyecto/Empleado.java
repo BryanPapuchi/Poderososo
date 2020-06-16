@@ -61,12 +61,13 @@ public String getCodigo(){
     return Codigo;
 }
 
+    public void setSalario(double Salario) {
+        this.Salario = Salario;
+    }
+
     public double getSalario() {
         return Salario;
     }
 
-    public void setSalario(double Salario) {
-        this.Salario = Salario;
-    }
 
 }
