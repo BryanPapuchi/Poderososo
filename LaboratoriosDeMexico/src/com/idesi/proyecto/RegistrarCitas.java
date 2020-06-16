@@ -10,7 +10,6 @@ public class RegistrarCitas extends javax.swing.JFrame {
    
     ClientesMan vtnCli;
     CitasMos vtnCitasMos = null;
-    ControlPer vtnPersonal;
     
     public int posArr = 0;
     public int actual = 0;
@@ -212,8 +211,6 @@ public class RegistrarCitas extends javax.swing.JFrame {
         }
         
         limpiar_cajas();
-
-        vtnPersonal.aumento = posArr;
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void mniRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniRegresarActionPerformed
