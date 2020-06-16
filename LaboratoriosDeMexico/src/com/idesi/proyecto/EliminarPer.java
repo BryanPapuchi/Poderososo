@@ -96,7 +96,7 @@ public class EliminarPer extends javax.swing.JFrame {
         lblSalario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         lblSalario.setText("Salario:");
 
-        btnEliminar.setBackground(new java.awt.Color(102, 255, 204));
+        btnEliminar.setBackground(new java.awt.Color(0, 0, 204));
         btnEliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {

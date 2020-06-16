@@ -115,7 +115,7 @@ public class ModidicarPer extends javax.swing.JFrame {
             }
         });
 
-        btnGuardar.setBackground(new java.awt.Color(102, 255, 204));
+        btnGuardar.setBackground(new java.awt.Color(0, 0, 204));
         btnGuardar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnGuardar.setText("Guardar Cambios");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
