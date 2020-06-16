@@ -280,6 +280,7 @@ public class EliminarPer extends javax.swing.JFrame {
                 txtEdad.setText(Empleados[bDatos].getEdad());
                 txtRFC.setText(Empleados[bDatos].getRFC());
                 txtCodigo.setText(Empleados[bDatos].getCodigo());
+                txtSalario.setText(String.valueOf(Empleados[bDatos].getSalario()));
                 modificar = bDatos;
                 bDatos= 5;
             } else {
