@@ -7,7 +7,9 @@ import javax.swing.JOptionPane;
 public class ControlPer extends javax.swing.JFrame {
     
     Empleado Empleados[] = new Empleado[5];
+    Producto recursos = new Producto();
     Empleado Empleados1 = new Empleado();
+  
     
     int posArr = 0;
     int acual = 0;
@@ -32,6 +34,11 @@ public class ControlPer extends javax.swing.JFrame {
         this.Empleados1 = persona1;
         initComponents();
     }
+    
+    /*public ControlPer(Recursos vtnRec, Empleado Empleados2 ){
+        this.Empleados2 = Empleados2;
+        this.vtnRec = vtnRec;
+    }*/
     
     public void limpiar_cajas(){
         txtNombre.setText("");
@@ -70,7 +77,7 @@ public class ControlPer extends javax.swing.JFrame {
         btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         btnMostrar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnAgregar = new javax.swing.JButton();
         menuControl = new javax.swing.JMenuBar();
         jmArchivo = new javax.swing.JMenu();
         miRegresar = new javax.swing.JMenuItem();
@@ -147,12 +154,12 @@ public class ControlPer extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(102, 255, 204));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton1.setText("Agregar Producto");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregar.setBackground(new java.awt.Color(102, 255, 204));
+        btnAgregar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnAgregar.setText("Agregar Producto");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAgregarActionPerformed(evt);
             }
         });
 
@@ -229,7 +236,7 @@ public class ControlPer extends javax.swing.JFrame {
                         .addComponent(btnGuardar))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(259, 259, 259)
-                        .addComponent(jButton1)))
+                        .addComponent(btnAgregar)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -273,7 +280,7 @@ public class ControlPer extends javax.swing.JFrame {
                     .addComponent(btnModificar)
                     .addComponent(btnEliminar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1)
+                .addComponent(btnAgregar)
                 .addGap(18, 18, 18))
         );
 
@@ -415,11 +422,20 @@ public class ControlPer extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnMostrarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        this.setVisible(false);
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        
+        if(vtnRec== null){
+            vtnRec = new Recursos(this, recursos);
+        }
+        
+        vtnRec.posArr = posArr;
+        vtnRec.actual = 0;
+        
+        
         vtnRec.setVisible(true);
+        this.setVisible(false);
         limpiar_cajas(); 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAgregarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -457,13 +473,13 @@ public class ControlPer extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnMostrar;
     private javax.swing.JComboBox<String> cmbTipo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
