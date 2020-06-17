@@ -306,14 +306,14 @@ public class ControlPer extends javax.swing.JFrame {
                 Empleados[posArr].setNombre(txtNombre.getText());
                 Empleados[posArr].settipoEmpleado(cmbTipo.getSelectedItem().toString());
                 profesion = 150;
-                if ( aumento != 0 ) {
+//                if ( aumento != 0 ) {
 
-                        profesion = profesion + (aumento * 150);
-                        Empleados[posArr].setSalario(profesion);
+//                        profesion = profesion + (aumento * 150);
+//                        Empleados[posArr].setSalario(profesion);
                         
-                } else {
+//                } else {
                     Empleados[posArr].setSalario(profesion);
-                }
+//                }
                  posArr++;
                  
                 JOptionPane.showMessageDialog(this, "Laboratorista guardado");
@@ -327,14 +327,14 @@ public class ControlPer extends javax.swing.JFrame {
                 Empleados[posArr].setNombre(txtNombre.getText());
                 Empleados[posArr].settipoEmpleado(cmbTipo.getSelectedItem().toString());
                 profesion = 100; 
-                if ( aumento != 0 ) {
+//                if ( aumento != 0 ) {
 
-                        profesion = profesion + (aumento * 100);
-                        Empleados[posArr].setSalario(profesion);
+//                        profesion = profesion + (aumento * 100);
+//                        Empleados[posArr].setSalario(profesion);
                         
-                } else {
+//                } else {
                     Empleados[posArr].setSalario(profesion);
-                }
+//                }
                 posArr++;
                 
                 JOptionPane.showMessageDialog(this, "Administrativo guardado");
@@ -351,32 +351,6 @@ public class ControlPer extends javax.swing.JFrame {
              JOptionPane.showMessageDialog(this, "El almacenamiento esta completo.");
         }
            
-            
-        
-        
-        
-        
-        
-        
-        
-    /*    
-        if(posArr < Empleados.length){
-            Empleados[posArr] = new Empleado();
-            Empleados[posArr].setNombre(txtNombre.getText());
-            Empleados[posArr].setEdad(txtEdad.getText());
-            Empleados[posArr].setRFC(txtRFC.getText());
-            Empleados[posArr].setCodigo(txtCodigo.getText());
-            Empleados[posArr].settipoEmpleado(cmbTipo.getSelectedItem().toString());
-            posArr++;       
-            txtAlmacen.setText(String.valueOf(posArr));
-            
-            //Habilitar el botón Abrir Ventana
-            if(posArr>0) {
-                btnBuscar.setEnabled(true);
-            }
-        }else{
-            JOptionPane.showMessageDialog(this, "El almacenamiento esta completo");
-        }  */
         limpiar_cajas(); 
     }//GEN-LAST:event_btnGuardarActionPerformed
 
