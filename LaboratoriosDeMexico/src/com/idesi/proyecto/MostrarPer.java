@@ -29,7 +29,7 @@ public class MostrarPer extends javax.swing.JFrame {
     
     public void cargar_datos(int actual){
          txtNombre.setText(Empleados[actual].getNombre());
-         txtEdad.setText(Empleados[actual].getNombre());
+         txtEdad.setText(Empleados[actual].getEdad());
          txtCodigo.setText(Empleados[actual].getCodigo());
          txtRFC.setText(Empleados[actual].getRFC());
          txtTipo.setText(Empleados[actual].gettipoEmpleado());

@@ -7,7 +7,9 @@ import javax.swing.JOptionPane;
 public class Recursos extends javax.swing.JFrame {
 
    Producto recursos[] = new Producto[5];
+   Empleado Empleados = new Empleado();
    Producto recursos1 = new Producto();
+   Producto recursos2 = new Producto();
    
    int posArr = 0;
    int posBusqueda = 5;
@@ -16,6 +18,7 @@ public class Recursos extends javax.swing.JFrame {
    
    RecursosMostrar vtnRecMos = null;
    Principal vtnPrincipal;
+   ControlPer vtnControlPer;
   
     
     public Recursos() {
@@ -25,6 +28,12 @@ public class Recursos extends javax.swing.JFrame {
     public Recursos( Principal vtnPrincipal , Producto recursos1) {
         this.recursos1 = recursos1;
         this.vtnPrincipal = vtnPrincipal;
+        initComponents();
+    }
+    
+    public Recursos(ControlPer vtnControlPer, Producto recursos2){
+        this.recursos2 = recursos2;
+        this.vtnControlPer = vtnControlPer;
         initComponents();
     }
     
@@ -90,6 +99,7 @@ public class Recursos extends javax.swing.JFrame {
         mniAyuda = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         mniInventario = new javax.swing.JMenuItem();
+        mniRegresar = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Recursos de Materiales");
@@ -188,6 +198,14 @@ public class Recursos extends javax.swing.JFrame {
             }
         });
         jMenu2.add(mniInventario);
+
+        mniRegresar.setText("Regresar Control Personal");
+        mniRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniRegresarActionPerformed(evt);
+            }
+        });
+        jMenu2.add(mniRegresar);
 
         jMenuBar1.add(jMenu2);
 
@@ -507,6 +525,12 @@ public class Recursos extends javax.swing.JFrame {
            
     }//GEN-LAST:event_mniAyudaActionPerformed
 
+    private void mniRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniRegresarActionPerformed
+        this.setVisible(false);
+        vtnControlPer.setVisible(true);
+        limpiar_cajas();
+    }//GEN-LAST:event_mniRegresarActionPerformed
+
  
     
     
@@ -567,6 +591,7 @@ public class Recursos extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem mniAyuda;
     private javax.swing.JMenuItem mniInventario;
+    private javax.swing.JMenuItem mniRegresar;
     private javax.swing.JMenuItem mniRegresarMenu;
     private javax.swing.JTextField txtBuscado;
     private javax.swing.JTextField txtCodigo;

@@ -260,14 +260,14 @@ public class ModidicarPer extends javax.swing.JFrame {
     }//GEN-LAST:event_mniAyudaActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        if (!((txtNombre.getText()).equals("")) && !((txtNombre.getText()).equals("")) && !(txtNombre.getText()).equals("")) {
+        if (!((txtNombre.getText()).equals("")) && !((txtEdad.getText()).equals("")) && !(txtCodigo.getText()).equals("")) {
 
-            Empleados[busPer].setNombre(txtNombre.getText());
-            Empleados[busPer].setEdad(txtEdad.getText());
-            Empleados[busPer].setRFC(txtRFC.getText());
-            Empleados[busPer].setCodigo(txtCodigo.getText());
-            Empleados[busPer].settipoEmpleado(txtTipo.getText());
-            Empleados[busPer].setSalario(Double.parseDouble(txtSalario.getText().trim()));
+            Empleados[modificar].setNombre(txtNombre.getText());
+            Empleados[modificar].setEdad(txtEdad.getText());
+            Empleados[modificar].setRFC(txtRFC.getText());
+            Empleados[modificar].setCodigo(txtCodigo.getText());
+            Empleados[modificar].settipoEmpleado(txtTipo.getText());
+            Empleados[modificar].setSalario(Double.parseDouble(txtSalario.getText().trim()));
 
             JOptionPane.showMessageDialog(this, "Se a guardado");
             busPer = 5;
